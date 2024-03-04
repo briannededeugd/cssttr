@@ -1,4 +1,298 @@
 :root {
 
     /* SUN GRADIENT */
-    --c
+    --color-sun-01: #febf34;
+    --color-sun-02: #febe34cd;
+    --color-sun-03: #febe34a6;
+    --color-sun-04: #febe3467;
+    --color-sun-05: #febe3432;
+
+    /* --color-sun-01: #f7dd66;
+    --color-sun-02: #f7dd66d2;
+    --color-sun-03: #f7dd66b5;
+    --color-sun-04: #f7dd6698;
+    --color-sun-05: #f7dd6651; */
+
+    /* CONTROL PANEL GRADIENT */
+    --color-controlpanel-01: #4b882b;
+    --color-controlpanel-02: #79a33d;
+    --color-controlpanel-03: #dbd76b;
+    --color-controlpanel-04: #a8bf52;
+}
+
+
+
+body {
+    background: linear-gradient(to bottom, skyblue, cornflowerblue);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    width: 100vw;
+
+    overflow: hidden;
+}
+
+/* ----------------- */
+/* SETTING THE SCENE */
+/* ----------------- */
+
+/* Standard cloud */
+body > div:first-of-type > div {
+    position: absolute;
+    left: 0;
+    background: white;
+    border-radius: 1000px;
+    animation: zoomies 10s infinite linear;
+}
+
+/* Cloud bump #1 */
+body > div:first-of-type > div::before {
+    content: "";
+    position: absolute;
+    top: -80%;
+    left: 10%;
+    width: 50%;
+    height: 150%;
+    background: white;
+    border-radius: 50%;
+}
+
+/* Cloud bump #2 */
+body > div:first-of-type > div::after {
+    content: "";
+    position: absolute;
+    top: -40%;
+    right: 20%;
+    width: 30%;
+    height: 100%;
+    background: white;
+    border-radius: 50%;
+}
+
+/* UNIQUE SIZING PER CLOUD */
+body > div:first-of-type > div:first-of-type { /* Cloud #1 */
+    height: 60px;
+    width: 200px;
+    top: 20vh;
+}
+
+body > div:first-of-type > div:nth-of-type(2) { /* Cloud #2 */
+    height: 40px;
+    width: 140px;
+    top: 10vh;
+    animation-duration: 12s;
+}
+
+body > div:first-of-type > div:nth-of-type(3) { /* Cloud #3 */
+    height: 75px;
+    width: 225px;
+    top: 40vh;
+    animation-duration: 18s;
+}
+
+body > div:first-of-type > div:nth-of-type(4) { /* Cloud #4 */
+    height: 50px;
+    width: 160px;
+    top: 65vh;
+    animation-duration: 15s;
+}
+
+@keyframes zoomies {
+  from {
+    left: 0;
+    transform: translateX(-100%);
+  }
+
+  to {
+    left: 100%;
+    transform: translateX(0%);
+  }
+}
+
+/* ------- */
+/* THE SUN */
+/* ------- */
+
+body > div:nth-of-type(2) {
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+    background: radial-gradient(
+        var(--color-sun-01) 0%,
+        var(--color-sun-01) 20%,
+        var(--color-sun-02) 20%,
+        var(--color-sun-02) 40%,
+        var(--color-sun-03) 40%,
+        var(--color-sun-03) 60%,
+        var(--color-sun-04) 60%,
+        var(--color-sun-04) 80%,
+        var(--color-sun-05) 80%,
+        var(--color-sun-05) 100%
+    );
+}
+
+/* ------------- */
+/* PRECIPITATION */
+/* ------------- */
+
+/* ------------- */
+/* CONTROL PANEL */
+/* ------------- */
+
+body > div:nth-of-type(4) {
+    width: 75vw;
+    height: 30vh;
+    background-image: repeating-linear-gradient(
+      0deg,
+      hsla(0, 0%, 100%, 0) 0%,
+      hsla(0, 0%, 100%, 0) 6%,
+      hsla(0, 0%, 100%, 0.1) 7.5%
+    ),
+    repeating-linear-gradient(
+      0deg,
+      hsla(0, 0%, 0%, 0) 0%,
+      hsla(0, 0%, 0%, 0) 4%,
+      hsla(0, 0%, 0%, 0.03) 4.5%
+    ),
+    repeating-linear-gradient(
+      0deg,
+      hsla(0, 0%, 100%, 0) 0%,
+      hsla(0, 0%, 100%, 0) 1.2%,
+      hsla(0, 0%, 100%, 0.15) 2.2%
+    ),
+    linear-gradient(
+      190deg,
+      hsl(0, 0%, 78%) 0%,
+      hsl(0, 0%, 90%) 20%,
+      hsl(0, 0%, 78%) 53%,
+      hsl(0, 0%, 70%) 100%
+    );
+  box-shadow: inset hsla(0, 0%, 15%, 0.8) 0 -2px 1px 2px,
+    inset hsla(0, 0%, 0%, 0.25) 0 -1px 0px 1px,
+    inset hsla(0, 0%, 100%, 0.7) 0 1px 1px 3px;
+
+    border-radius: 80px 80px 0 0;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* TEMP CONTROL */
+body > div:nth-of-type(4) > div:first-of-type {
+  width: 400px;
+  height: 200px;
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  overflow: hidden;
+  text-align: center;
+  transform: translateX(-50%);
+}
+
+/* EMPTY GAUGE */
+body > div:nth-of-type(4) > div:first-of-type > div:first-of-type {
+  z-index: 1;
+  position: absolute;
+  background-color: rgba(255,255,255,.2);
+  box-shadow: inset hsla(0, 0%, 15%, 0.8) 0 -2px 1px 2px,
+    inset hsla(0, 0%, 0%, 0.25) 0 -1px 0px 1px,
+    inset hsla(0, 0%, 100%, 0.7) 0 1px 1px 3px;
+  width: 400px;
+  height: 200px;
+  top: 0%;
+  border-radius: 250px 250px 0px 0px;
+}
+
+/* CENTER PART TO CUT OFF CIRCLE */
+body > div:nth-of-type(4) > div:first-of-type > div:nth-of-type(2) {
+  z-index: 3;
+  position: absolute;
+  background-image: repeating-linear-gradient(
+      0deg,
+      hsla(0, 0%, 100%, 0) 0%,
+      hsla(0, 0%, 100%, 0) 6%,
+      hsla(0, 0%, 100%, 0.1) 7.5%
+    ),
+    repeating-linear-gradient(
+      0deg,
+      hsla(0, 0%, 0%, 0) 0%,
+      hsla(0, 0%, 0%, 0) 4%,
+      hsla(0, 0%, 0%, 0.03) 4.5%
+    ),
+    repeating-linear-gradient(
+      0deg,
+      hsla(0, 0%, 100%, 0) 0%,
+      hsla(0, 0%, 100%, 0) 1.2%,
+      hsla(0, 0%, 100%, 0.15) 2.2%
+    ),
+    linear-gradient(
+      190deg,
+      hsl(0, 0%, 78%) 0%,
+      hsl(0, 0%, 90%) 20%,
+      hsl(0, 0%, 78%) 53%,
+      hsl(0, 0%, 70%) 100%
+    );
+  box-shadow: inset hsla(0, 0%, 15%, 0.8) 0 -2px 1px 2px,
+    inset hsla(0, 0%, 0%, 0.25) 0 -1px 0px 1px,
+    inset hsla(0, 0%, 100%, 0.7) 0 1px 1px 3px;
+  width: 250px;
+  height: 125px;
+  top: 75px;
+  margin-left: 75px;
+  margin-right: auto;
+  border-radius: 250px 250px 0px 0px;
+}
+
+/* FILLED IN PART OF THE GAUGE (PERCENTAGE) */
+body > div:nth-of-type(4) > div:first-of-type > div:nth-of-type(3) {
+  z-index: 2;
+  position: absolute;
+  background-color: #5664F9;
+  width: 400px;
+  height: 200px;
+  top: 200px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 0px 0px 200px 200px;
+  transform-origin: center top;
+  transition: all 1.3s ease-in-out;
+}
+
+body > div:nth-of-type(4):hover > div:first-of-type > div:nth-of-type(3) { 
+    transform:rotate(.5turn);
+}
+
+body > div:nth-of-type(4) > div:first-of-type > div:nth-of-type(4) {
+  z-index: 4;
+  color: rgba(255,255,255,.2);
+  font-size: 1.5em;
+  line-height: 25px;
+  position: absolute;
+  width: 400px;
+  height: 200px;
+  top: 90px;
+  margin-left: auto;
+  margin-right: auto;
+  transition: all 1s ease-out;
+}
+
+/* PIN INDICATOR */
+body > div:nth-of-type(4) > div:first-of-type > div:nth-of-type(5) {
+    position: absolute;
+    z-index: 10;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    transform-origin: bottom center;
+    transform: rotate(-85deg);
+
+
+    height: 150px;
+    width: 5px;
+    border-radius: 35%;
+    background-color: silver;
+    box-shadow: inset hsla(0, 0%, 15%, 0.8) 0 -2px 1px 2px,
+    inset hsla(0, 0%, 0%, 0.25) 0 -1px 0px 1px,
+    inset hsla(0, 0%, 100%, 0.7) 0 1px 1px 3px;;
+}
