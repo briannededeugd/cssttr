@@ -1,35 +1,210 @@
+@font-face {
+  font-family: AzeretMono;
+  src: url(../fonts/AzeretMono-VariableFont_wght.ttf);
+}
+
 :root {
-
     /* SUN GRADIENT */
-    --color-sun-01: #febf34;
-    --color-sun-02: #febe34cd;
-    --color-sun-03: #febe34a6;
-    --color-sun-04: #febe3467;
-    --color-sun-05: #febe3432;
+    --color-coldsun: #fffae5bb;
+    --color-coldsun-gradient: radial-gradient(
+      #ffea7fbb 0%,
+      #ffe97fbb 20%,
+      #ffee99bb 20%,
+      #ffee99bb 40%,
+      #fff2b2bb 40%,
+      #fff2b2bb 60%,
+      #fff6ccbb 60%,
+      #fff6ccbb 80%,
+      #fffae5bb 80%,
+      #fffae5bb 100%
+  );
 
-    /* --color-sun-01: #f7dd66;
-    --color-sun-02: #f7dd66d2;
-    --color-sun-03: #f7dd66b5;
-    --color-sun-04: #f7dd6698;
-    --color-sun-05: #f7dd6651; */
+    --color-sun: #fffae5;
+    --color-sun-gradient: radial-gradient(
+      #ffea7f 0%,
+      #ffe97f 20%,
+      #ffee99 20%,
+      #ffee99 40%,
+      #fff2b2 40%,
+      #fff2b2 60%,
+      #fff6cc 60%,
+      #fff6cc 80%,
+      #fffae5 80%,
+      #fffae5 100%
+  );
 
-    /* CONTROL PANEL GRADIENT */
-    --color-controlpanel-01: #4b882b;
-    --color-controlpanel-02: #79a33d;
-    --color-controlpanel-03: #dbd76b;
-    --color-controlpanel-04: #a8bf52;
+  --color-warmsun: #fef7b9;
+  --color-warmsun-gradient: radial-gradient(
+      #fece38 0%,
+      #fece38 20%,
+      #fed464 20%,
+      #fed464 40%,
+      #fee684 40%,
+      #fee684 60%,
+      #fef7b9 60%,
+      #fef7b9 80%,
+      #fffde8 80%,
+      #fffde8 100%
+  );
+
+  /* SKY GRADIENT */
+
+    /* Cold */
+    --color-coldsky: linear-gradient(to top, #e2edf8, #b1bbcc);
+  
+    /* Regular */
+    --color-regsky: linear-gradient(to top, #cadff5, #87aeec);
+
+    /* Hot */
+    --color-hotsky: linear-gradient(to top, #a9d7e7, #1075c2);
+
+    /* BUTTONS AND ELEMENTS */
+    --color-orange: #f4d69f;
+    --color-lilac: #c9c7f3;
+    --color-purple: #9f9ce0;
+    --color-blue: #a8c0f1;
+
+    /* TITLE GRADIENT */
+    --title-gradient: linear-gradient(to right, #5f0f40, var(--color-orange));
+    --color-fore:#fffe00;
+    --color-back:#303180;
+    --color-shad:#0081c2;
+
+    /* BORDER */
+    --border: 1px solid black;
+    --box-shadow: -2px -2px;
 }
 
 
-
 body {
-    background: linear-gradient(to bottom, skyblue, cornflowerblue);
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 100vh;
-    width: 100vw;
+  /* font-family: Arial, Helvetica, sans-serif; */
+  font-family: "AzeretMono", monospace;
+  background: var(--color-regsky);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  width: 100vw;
 
-    overflow: hidden;
+  overflow: hidden;
+}
+
+body > section {
+  position: absolute;
+  top: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+}
+
+/* ---------- */
+/* SITE TITLE */
+/* ---------- */
+
+h1 { 
+  display: block;
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: white;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: -.35em;
+  margin: 0;
+  padding: 0 80px;
+  text-shadow: 0 0 1px #ffffff; /* 1px outline */
+
+  & span {
+    display: inline-block;
+
+     &:first-of-type {
+      rotate: 7deg;
+     }
+
+     &:nth-of-type(2) {
+      rotate: -4deg;
+     }
+
+     &:nth-of-type(3) { 
+      rotate: 2deg;
+    }
+
+    &:nth-of-type(4) { 
+     rotate: 6deg;
+    }
+
+    &:nth-of-type(5) { 
+      rotate: -2deg;
+    }
+
+    &:nth-of-type(6) { 
+      rotate: 2deg;
+    }
+
+    &:nth-of-type(7) { 
+      rotate: -5deg;
+    }
+
+    &:nth-of-type(8) { 
+      rotate: 9deg;
+    }
+
+    &:nth-of-type(9) { 
+      rotate: 1deg;
+    }
+
+    &:nth-of-type(10) { 
+      rotate: -3deg;
+    }
+  }
+
+}
+
+h2 {
+  font-size: 1rem;
+  font-weight: 400;
+  color: black;
+  margin-top: auto;
+  margin-bottom: 13vh;
+}
+
+/* ------------- */
+/* BODYYY BASICS */
+/* ------------- */
+
+body > div:first-of-type > div:first-of-type > div:last-of-type > h3 {
+  font-size: 1rem;
+  color: black;
+  margin-top: auto;
+  margin-bottom: 13vh;
+}
+
+h3 {
+  font-size: 1rem;
+}
+
+h4 {
+  font-size: .85em;
+  font-style: normal;
+  font-weight: 100;
+}
+
+input[type=range]::-webkit-range-thumb,
+input[type=range]::-moz-range-thumb {
+  cursor: pointer;
+  background: var(--color-orange);
+  width: 2rem;
+  border: var(--border);
+  box-shadow: var(--box-shadow);
+  border-radius: 10px;
+}
+
+input[type=range]::-moz-range-track {
+  border-radius: 6px;
+  background: #ffffff;
+  height: .35rem;
+  width: 100%;
+  border: var(--border);
+  border-radius: 30px;
+  box-shadow: -1px -1px inset;
 }
 
 /* ----------------- */
@@ -37,64 +212,64 @@ body {
 /* ----------------- */
 
 /* Standard cloud */
-body > div:first-of-type > div {
+body > div:nth-of-type(4) {
+  & div {
     position: absolute;
     left: 0;
     background: white;
     border-radius: 1000px;
     animation: zoomies 10s infinite linear;
-}
+    z-index: 500;
 
-/* Cloud bump #1 */
-body > div:first-of-type > div::before {
-    content: "";
-    position: absolute;
-    top: -80%;
-    left: 10%;
-    width: 50%;
-    height: 150%;
-    background: white;
-    border-radius: 50%;
-}
+    &::before {
+      content: "";
+      position: absolute;
+      top: -80%;
+      left: 10%;
+      width: 50%;
+      height: 150%;
+      background: white;
+      border-radius: 50%;
+    }
 
-/* Cloud bump #2 */
-body > div:first-of-type > div::after {
-    content: "";
-    position: absolute;
-    top: -40%;
-    right: 20%;
-    width: 30%;
-    height: 100%;
-    background: white;
-    border-radius: 50%;
-}
+    &::after {
+      content: "";
+      position: absolute;
+      top: -40%;
+      right: 20%;
+      width: 30%;
+      height: 100%;
+      background: white;
+      border-radius: 50%;
+    }
 
-/* UNIQUE SIZING PER CLOUD */
-body > div:first-of-type > div:first-of-type { /* Cloud #1 */
-    height: 60px;
+    &:first-of-type {
+      height: 60px;
     width: 200px;
     top: 20vh;
-}
+    }
 
-body > div:first-of-type > div:nth-of-type(2) { /* Cloud #2 */
-    height: 40px;
-    width: 140px;
-    top: 10vh;
-    animation-duration: 12s;
-}
+    &:nth-of-type(2) {
+      height: 40px;
+      width: 140px;
+      top: 10vh;
+      animation-duration: 12s;
+    }
 
-body > div:first-of-type > div:nth-of-type(3) { /* Cloud #3 */
-    height: 75px;
-    width: 225px;
-    top: 40vh;
-    animation-duration: 18s;
-}
+    &:nth-of-type(3) { /* Cloud #3 */
+      height: 75px;
+      width: 225px;
+      top: 40vh;
+      animation-duration: 18s;
+    }
 
-body > div:first-of-type > div:nth-of-type(4) { /* Cloud #4 */
-    height: 50px;
-    width: 160px;
-    top: 65vh;
-    animation-duration: 15s;
+    &:nth-of-type(4) { /* Cloud #4 */
+      height: 50px;
+      width: 160px;
+      top: 65vh;
+      animation-duration: 15s;
+    }
+  }
 }
 
 @keyframes zoomies {
@@ -114,185 +289,657 @@ body > div:first-of-type > div:nth-of-type(4) { /* Cloud #4 */
 /* ------- */
 
 body > div:nth-of-type(2) {
-    height: 150px;
-    width: 150px;
-    border-radius: 50%;
-    background: radial-gradient(
-        var(--color-sun-01) 0%,
-        var(--color-sun-01) 20%,
-        var(--color-sun-02) 20%,
-        var(--color-sun-02) 40%,
-        var(--color-sun-03) 40%,
-        var(--color-sun-03) 60%,
-        var(--color-sun-04) 60%,
-        var(--color-sun-04) 80%,
-        var(--color-sun-05) 80%,
-        var(--color-sun-05) 100%
-    );
+
+  margin-left: 50px;
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+  background: var(--color-sun-gradient);
+  box-shadow: 0 0 15px 15px var(--color-sun);
+  transition: all .3s ease-in-out;
 }
 
 /* ------------- */
 /* PRECIPITATION */
 /* ------------- */
 
+body > div:nth-of-type(3) {
+  margin: 0;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 400;
+
+  & div:first-of-type div {
+    position: absolute;
+    background: white;
+    width: 5px;
+    height: 25px;
+    top: -100px;
+  }
+}
+
 /* ------------- */
 /* CONTROL PANEL */
 /* ------------- */
 
-body > div:nth-of-type(4) {
-    width: 75vw;
-    height: 30vh;
-    background-image: repeating-linear-gradient(
-      0deg,
-      hsla(0, 0%, 100%, 0) 0%,
-      hsla(0, 0%, 100%, 0) 6%,
-      hsla(0, 0%, 100%, 0.1) 7.5%
-    ),
-    repeating-linear-gradient(
-      0deg,
-      hsla(0, 0%, 0%, 0) 0%,
-      hsla(0, 0%, 0%, 0) 4%,
-      hsla(0, 0%, 0%, 0.03) 4.5%
-    ),
-    repeating-linear-gradient(
-      0deg,
-      hsla(0, 0%, 100%, 0) 0%,
-      hsla(0, 0%, 100%, 0) 1.2%,
-      hsla(0, 0%, 100%, 0.15) 2.2%
-    ),
-    linear-gradient(
-      190deg,
-      hsl(0, 0%, 78%) 0%,
-      hsl(0, 0%, 90%) 20%,
-      hsl(0, 0%, 78%) 53%,
-      hsl(0, 0%, 70%) 100%
-    );
-  box-shadow: inset hsla(0, 0%, 15%, 0.8) 0 -2px 1px 2px,
-    inset hsla(0, 0%, 0%, 0.25) 0 -1px 0px 1px,
-    inset hsla(0, 0%, 100%, 0.7) 0 1px 1px 3px;
+body > div:first-of-type {
+  width: 975px;
+  height: 35vh;
+  background-color: white;
 
-    border-radius: 80px 80px 0 0;
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-}
+  border-radius: 20px 20px 0 0;
+  border: var(--border);
+  box-shadow: -1px -1px;
 
-/* TEMP CONTROL */
-body > div:nth-of-type(4) > div:first-of-type {
-  width: 400px;
-  height: 200px;
   position: absolute;
-  bottom: 100%;
+  bottom: 0;
   left: 50%;
-  overflow: hidden;
+  transform: translateX(-50%) perspective(500px) rotateX(10deg);
+  z-index: 1000;
+
+  /* ------------ */
+  /* TEMP CONTROL */
+  /* ------------ */
+  & > div:first-of-type {
+      width: 400px;
+      height: 200px;
+      position: absolute;
+      bottom: 100%;
+      left: 50%;
+      overflow: hidden;
+      text-align: center;
+      transform: translateX(-50%);
+
+      /* EMPTY GAUGE */
+      & > div:first-of-type {
+        z-index: 1;
+        position: absolute;
+        background-color: white;
+        width: 400px;
+        height: 200px;
+        top: 0%;
+        border-radius: 250px 250px 0px 0px;
+      }
+    
+      /* CENTER PART TO CUT OFF CIRCLE */
+      & > div:nth-of-type(2) {
+        z-index: 3;
+        position: absolute;
+        background: white;
+        box-shadow: var(--box-shadow);
+        border: var(--border);
+        width: 250px;
+        height: 125px;
+        top: 75px;
+        margin-left: 75px;
+        margin-right: auto;
+        border-radius: 250px 250px 0px 0px;
+      }
+
+      /* FILLED IN PART OF THE GAUGE (PERCENTAGE) */
+      & > div:nth-of-type(3) {
+        z-index: 2;
+        position: absolute;
+	      background: -moz-linear-gradient(left, #ff8472 0%, #8ccfe4 100%);
+	      background: -webkit-gradient(
+		      left top,
+		      right top,
+		      color-stop(0%, #ff8472),
+		      color-stop(100%, #8ccfe4)
+	      );
+	      background: -webkit-linear-gradient(left, #ff8472 0%, #8ccfe4 100%);
+	      background: -o-linear-gradient(left, #ff8472 0%, #8ccfe4 100%);
+	      background: -ms-linear-gradient(left, #ff8472 0%, #8ccfe4 100%);
+	      background: linear-gradient(to right, #ff8472 0%, #8ccfe4 100%);
+
+        box-shadow: -2px -2px inset, 1px 1px;
+        width: 400px;
+        height: 200px;
+        top: 200px;
+        margin-left: auto;
+        margin-right: auto;
+        border-radius: 0px 0px 200px 200px;
+        transform-origin: center top;
+        transform:rotate(.5turn);
+      }
+
+      & > div:nth-of-type(4) {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        z-index: 10;
+        color: white;
+        font-size: 1.5em;
+        line-height: 25px;
+        position: absolute;
+        width: 400px;
+        height: 200px;
+        top: 90px;
+        margin-left: auto;
+        margin-right: auto;
+        transition: all 1s ease-out;
+      }
+    }
+
+    /* PIN INDICATOR */
+    & > div:nth-of-type(3) {
+      position: absolute;
+      z-index: 10;
+
+      bottom: 35vh;
+      left: 50%;
+      transform: translateX(-50%);
+      transform-origin: bottom center;
+      transform: rotate(0deg);
+      transition: all .3s ease-in-out;
+
+      box-shadow: -2px -2px black;
+      border: var(--border);
+      height: 150px;
+      width: 5px;
+      border-radius: 35%;
+      background-color: var(--color-orange);
+
+      &::after {
+        display: inline-block;
+        content: "";
+        background-color: white;
+        height: 15px;
+        width: 15px;
+        border-radius: 50%;
+        box-shadow: var(--box-shadow);
+        border: var(--border);
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: -10px;
+      }
+    }
+
+    /* ------------------ */
+    /* BUTTONS / CONTROLS */
+    /* ------------------ */
+
+    & > div:nth-of-type(2) {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem;
+
+      background: linear-gradient(0deg,
+        #432d5a43 0%,
+        #fff 20%);
+
+      margin-top: auto;
+      border-bottom: var(--border);
+      border-radius: 20px 20px 0 0;
+      box-shadow: 0 2px;
+      padding: 3.5vh 0;
+
+      filter: drop-shadow(0rem 2rem 1rem #cfc1e243);
+
+      & label {
+        width: 175px;
+        text-align: center;
+        padding: .75rem 0;
+        border-radius: 25px;
+        border: var(--border);
+        box-shadow: var(--box-shadow);
+        background: white;
+        cursor: pointer;
+
+        &:hover {
+          background: var(--color-lilac);
+          box-shadow: -1px -1px inset;
+        }
+      }
+
+      & input[type=radio] {
+        height: 0.1px;
+        width: 0.1px;
+        margin: 0;
+        padding: 0;
+        opacity: 0;
+
+        &:checked + label {
+          background: var(--color-orange);
+          box-shadow: -1px -1px inset;
+        }
+      }
+    }
+    
+    /* ------------------------------ */
+    /* FLAT PART OF THE CONTROL PANEL */
+    /* ------------------------------ */
+
+    & > div:nth-of-type(4) {
+      height: 160px;
+      padding: 0 2rem;
+      overflow: hidden;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%) perspective(0px) rotateX(0deg);
+
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      grid-template-rows: repeat(4, 1fr);
+      margin-top: .5rem;
+
+      & h3 {
+        padding: 0 2.5vw;
+        margin-bottom: 0;
+
+        &:first-of-type {
+          grid-area: 1 / 1 / 2 / 2;
+        }
+      }
+
+      /* -------- */
+      /* CONTROLS */
+      /* -------- */
+
+      & > div {
+        padding: 1rem 2.5rem 6rem;
+
+        &:first-of-type {
+          grid-area: 2 / 1 / 3 / 2;
+
+          & > div {
+            display: flex;
+            gap: 2rem;
+          }
+
+          & input[type=range] {
+            padding: 0;
+            margin: 0;
+            background: transparent;
+            border: none;
+            box-sizing: border-box;
+            background-clip: padding-box;
+            outline: none;
+            -webkit-appearance: none;
+            appearance: none;
+          }
+        }
+      }
+    }
+}
+
+/* ------------- */
+/* PRECIPITATION */
+/* ------------- */
+
+/* body > control panel > flat part > types of precipitation */
+body > div:first-of-type > div:nth-of-type(4) > div:nth-of-type(2) {
+  grid-area: 2 / 3 / 3 / 4;
+  display: flex;
+  gap: 5vw;
   text-align: center;
+}
+
+body > div:first-of-type > div:nth-of-type(4) > h3 {
+  grid-area: 1 / 3 / 3 / 4;
+}
+/* INDIVIDUAL SWITCHES */
+body > div:first-of-type > div:nth-of-type(4) > div:nth-of-type(2) > div input[type=radio]{
+  appearance: none;
+}
+
+body > div:first-of-type > div:nth-of-type(4) > div:nth-of-type(2) > div input[type=radio] {
+  height: 5vh;
+  width: 1.5rem;
+  border-radius: 5px;
+  border: var(--border);
+  background-color: var(--color-orange);
+  box-shadow: var(--box-shadow);
+  position: relative;
+  cursor: pointer;
+  transition: all .3s ease-in-out;
+}
+
+body > div:first-of-type > div:nth-of-type(4) > div:nth-of-type(2) > div input[type=radio]::before {
+  display: inline-block;
+  content: "";
+  z-index: 10;
+  height: 3.5vh;
+  width: .75rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 2.5px;
+  box-shadow: -2px -2px inset;
+  background-color: white;
+  border: var(--border);
+}
+
+body > div:first-of-type > div:nth-of-type(4) > div:nth-of-type(2) > div input[type=radio]::after {
+  display: inline-block;
+  content: "";
+  background-color: var(--color-lilac);
+  border: var(--border);
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
   transform: translateX(-50%);
+
+  box-shadow: 0px -2px;
+  z-index: 9999;
+  transition: all .3s ease-in-out;
 }
 
-/* EMPTY GAUGE */
-body > div:nth-of-type(4) > div:first-of-type > div:first-of-type {
-  z-index: 1;
-  position: absolute;
-  background-color: rgba(255,255,255,.2);
-  box-shadow: inset hsla(0, 0%, 15%, 0.8) 0 -2px 1px 2px,
-    inset hsla(0, 0%, 0%, 0.25) 0 -1px 0px 1px,
-    inset hsla(0, 0%, 100%, 0.7) 0 1px 1px 3px;
-  width: 400px;
-  height: 200px;
+body > div:first-of-type > div:nth-of-type(4) > div:nth-of-type(2) > div input[type=radio]:checked {
+  background-color: var(--color-lilac);
+}
+
+body > div:first-of-type > div:nth-of-type(4) > div:nth-of-type(2) > div input[type=radio]:checked::after {
+  background-color: var(--color-orange);
   top: 0%;
-  border-radius: 250px 250px 0px 0px;
+  box-shadow: 0px 2px;
 }
 
-/* CENTER PART TO CUT OFF CIRCLE */
-body > div:nth-of-type(4) > div:first-of-type > div:nth-of-type(2) {
-  z-index: 3;
+
+/* ------------------------------- */
+/*           INTERACTION           */
+/* ------------------------------- */
+
+/* ----------- */
+/* TEMPERATURE */
+/* ----------- */
+
+/* THE PIN NEEDLE */
+body > div:first-of-type > div:nth-of-type(2):has(> input[type=radio]:first-of-type:checked) + div {
+  transform: rotate(-85deg);
+}
+
+body > div:first-of-type > div:nth-of-type(2):has(> input[type=radio]:nth-of-type(2):checked) + div {
+  transform: rotate(0deg);
+}
+
+body > div:first-of-type > div:nth-of-type(2):has(> input[type=radio]:last-of-type:checked) + div {
+  transform: rotate(85deg);
+}
+
+/* THE SUN */
+body:has(> div:first-of-type > div:nth-of-type(2) > input[type=radio]:first-of-type:checked) > div:nth-of-type(2) {
+  background: var(--color-coldsun-gradient);
+  box-shadow: 0 0 15px 5px var(--color-coldsun);
+}
+
+body:has(> div:first-of-type > div:nth-of-type(2) > input[type=radio]:nth-of-type(2):checked) > div:nth-of-type(2) {
+  background: var(--color-sun-gradient);
+  box-shadow: 0 0 15px 15px var(--color-sun);
+}
+
+body:has(> div:first-of-type > div:nth-of-type(2) > input[type=radio]:nth-of-type(3):checked) > div:nth-of-type(2) {
+  background: var(--color-warmsun-gradient);
+  box-shadow: 0 0 15px 20px var(--color-warmsun);
+}
+
+/* THE SKY */
+body:has(> div:first-of-type > div:nth-of-type(2) > input[type=radio]:first-of-type:checked) {
+  background: var(--color-coldsky);
+}
+
+body:has(> div:first-of-type > div:nth-of-type(2) > input[type=radio]:nth-of-type(2):checked) {
+  background: var(--color-regsky);
+}
+
+body:has(> div:first-of-type > div:nth-of-type(2) > input[type=radio]:nth-of-type(3):checked) {
+  background: var(--color-hotsky);
+}
+
+/* ------------- */
+/* PRECIPITATION */
+/* ------------- */
+
+/* RAIN */
+body:has(> div:first-of-type > div:nth-of-type(4) > div:nth-of-type(2) > div:nth-of-type(2) input[type=radio]:checked) > div:nth-of-type(3) > div:first-of-type > div {
+  animation: fall linear infinite;
   position: absolute;
-  background-image: repeating-linear-gradient(
-      0deg,
-      hsla(0, 0%, 100%, 0) 0%,
-      hsla(0, 0%, 100%, 0) 6%,
-      hsla(0, 0%, 100%, 0.1) 7.5%
-    ),
-    repeating-linear-gradient(
-      0deg,
-      hsla(0, 0%, 0%, 0) 0%,
-      hsla(0, 0%, 0%, 0) 4%,
-      hsla(0, 0%, 0%, 0.03) 4.5%
-    ),
-    repeating-linear-gradient(
-      0deg,
-      hsla(0, 0%, 100%, 0) 0%,
-      hsla(0, 0%, 100%, 0) 1.2%,
-      hsla(0, 0%, 100%, 0.15) 2.2%
-    ),
-    linear-gradient(
-      190deg,
-      hsl(0, 0%, 78%) 0%,
-      hsl(0, 0%, 90%) 20%,
-      hsl(0, 0%, 78%) 53%,
-      hsl(0, 0%, 70%) 100%
-    );
-  box-shadow: inset hsla(0, 0%, 15%, 0.8) 0 -2px 1px 2px,
-    inset hsla(0, 0%, 0%, 0.25) 0 -1px 0px 1px,
-    inset hsla(0, 0%, 100%, 0.7) 0 1px 1px 3px;
-  width: 250px;
-  height: 125px;
-  top: 75px;
-  margin-left: 75px;
-  margin-right: auto;
-  border-radius: 250px 250px 0px 0px;
+  background: white;
+  width: 5px;
+  height: 25px;
+  top: -100px;
 }
 
-/* FILLED IN PART OF THE GAUGE (PERCENTAGE) */
-body > div:nth-of-type(4) > div:first-of-type > div:nth-of-type(3) {
-  z-index: 2;
+/* Rainfall animation */
+  @keyframes fall {
+    0% {
+      transform: translateY(-50px);
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(100vw);
+      opacity: 0;
+    }
+  }
+
+/* ---------- */
+/* SNOWFLAKES */
+/* ---------- */
+
+body:has(> div:first-of-type > div:nth-of-type(4) > div:nth-of-type(2) > div:nth-of-type(3) input[type=radio]:checked) > div:nth-of-type(3) > div:nth-of-type(2) > div {
+  display: inline-block;
+  position: relative;
+  width: 5px;
+  height: 25px;
+  animation: snowflakes 3s linear 2s 20;
+  top: -100px;
+}
+
+/* Setting the color */
+body:has(> div:first-of-type > div:nth-of-type(4) > div:nth-of-type(2) > div:nth-of-type(3) input[type=radio]:checked) > div:nth-of-type(3) > div:nth-of-type(2) > div,
+body:has(> div:first-of-type > div:nth-of-type(4) > div:nth-of-type(2) > div:nth-of-type(3) input[type=radio]:checked) > div:nth-of-type(3) > div:nth-of-type(2) > div::after,
+body:has(> div:first-of-type > div:nth-of-type(4) > div:nth-of-type(2) > div:nth-of-type(3) input[type=radio]:checked) > div:nth-of-type(3) > div:nth-of-type(2) > div::before {
+  background: white;
+}
+
+/* Adding a before and after for the snowflake shape */
+body:has(> div:first-of-type > div:nth-of-type(4) > div:nth-of-type(2) > div:nth-of-type(3) input[type=radio]:checked) > div:nth-of-type(3) > div:nth-of-type(2) > div::after,
+body:has(> div:first-of-type > div:nth-of-type(4) > div:nth-of-type(2) > div:nth-of-type(3) input[type=radio]:checked) > div:nth-of-type(3) > div:nth-of-type(2) > div::before {
   position: absolute;
-  background-color: #5664F9;
-  width: 400px;
-  height: 200px;
-  top: 200px;
-  margin-left: auto;
-  margin-right: auto;
-  border-radius: 0px 0px 200px 200px;
-  transform-origin: center top;
-  transition: all 1.3s ease-in-out;
+  background-color: white;
+  height: 100%;
+	width: 100%;
+	content: ".";
+	position: absolute;
+	top: 0px;
+	left: 0px;
+  transform: rotate(120deg);
 }
 
-body > div:nth-of-type(4):hover > div:first-of-type > div:nth-of-type(3) { 
-    transform:rotate(.5turn);
+/* Rotating the before in another direction */
+body:has(> div:first-of-type > div:nth-of-type(4) > div:nth-of-type(2) > div:nth-of-type(3) input[type=radio]:checked) > div:nth-of-type(3) > div:nth-of-type(2) > div::before {
+  transform: rotate(240deg);
 }
 
-body > div:nth-of-type(4) > div:first-of-type > div:nth-of-type(4) {
-  z-index: 4;
-  color: rgba(255,255,255,.2);
-  font-size: 1.5em;
-  line-height: 25px;
+/* The snowflakes falling */
+@keyframes snowflakes {
+	0% {
+		transform: translate3d(0,0,0) rotate(0deg) scale(0.6);
+	}
+	100% {
+		transform: translate3d(15px, 1200px, 0px) rotate(360deg) scale(0.6);
+	};
+}
+
+/* -------------------------------------------------------------- */
+/* VARIATION IN SNOWFLAKES SIZE AND ANIMATION DURATION AND ORIGIN */
+/* -------------------------------------------------------------- */
+body:has(> div:first-of-type > div:nth-of-type(4) > div:nth-of-type(2) > div:nth-of-type(3) input[type=radio]:checked) > div:nth-of-type(3) > div:nth-of-type(2) > div:nth-child(3n) {
+	width: 16px; height: 4px;
+	animation-duration: 4s;
+	animation-iteration-count: 30;
+	transform-origin: right -45px;
+}
+
+body:has(> div:first-of-type > div:nth-of-type(4) > div:nth-of-type(2) > div:nth-of-type(3) input[type=radio]:checked) > div:nth-of-type(3) > div:nth-of-type(2) > div:nth-child(3n+1) {
+	width: 24px; height: 6px;
+	animation-duration: 6s;
+	animation-iteration-count: 45;
+	transform-origin: right -30px;
+}
+
+body:has(> div:first-of-type > div:nth-of-type(4) > div:nth-of-type(2) > div:nth-of-type(2) input[type=radio]:checked) > div:nth-of-type(3) > div:nth-of-type(2) > div:nth-child(3n+2) {
+	width: 32px; height: 8px;
+	animation-duration: 8s;
+	animation-iteration-count: 60;
+	transform-origin: right -15px;
+}
+
+/* ----------------------------------------------- */
+/* VARIATION IN DELAYS: SNOWFLAKES + CATS AND DOGS */
+/* ----------------------------------------------- */
+body:has(> div:first-of-type > div:nth-of-type(4) > div:nth-of-type(2) > div:nth-of-type(3) input[type=radio]:checked) > div:nth-of-type(3) > div:nth-of-type(2) > div:nth-child(7n),
+body:has(> div:first-of-type > div:nth-of-type(4) > div:nth-of-type(2) > div:nth-of-type(4) input[type=radio]:checked) > div:nth-of-type(3) > div:nth-of-type(2) > div:nth-child(7n) {
+  opacity:.3;
+  animation-delay: 0s;
+  animation-timing-function:ease-in;
+}
+
+body:has(> div:first-of-type > div:nth-of-type(4) > div:nth-of-type(2) > div:nth-of-type(3) input[type=radio]:checked) > div:nth-of-type(3) > div:nth-of-type(2) > div:nth-child(7n+1),
+body:has(> div:first-of-type > div:nth-of-type(4) > div:nth-of-type(2) > div:nth-of-type(4) input[type=radio]:checked) > div:nth-of-type(3) > div:nth-of-type(2) > div:nth-child(7n+1) {
+  opacity:.4;
+  animation-delay: 1s;
+  animation-timing-function:ease-out;
+}
+
+body:has(> div:first-of-type > div:nth-of-type(4) > div:nth-of-type(2) > div:nth-of-type(3) input[type=radio]:checked) > div:nth-of-type(3) > div:nth-of-type(2) > div:nth-child(7n+2),
+body:has(> div:first-of-type > div:nth-of-type(4) > div:nth-of-type(2) > div:nth-of-type(4) input[type=radio]:checked) > div:nth-of-type(3) > div:nth-of-type(2) > div:nth-child(7n+2) {
+  opacity:.5;
+  animation-delay: 1.5s;
+  animation-timing-function:linear;
+}
+
+body:has(> div:first-of-type > div:nth-of-type(4) > div:nth-of-type(2) > div:nth-of-type(3) input[type=radio]:checked) > div:nth-of-type(3) > div:nth-of-type(2) > div:nth-child(7n+3),
+body:has(> div:first-of-type > div:nth-of-type(4) > div:nth-of-type(2) > div:nth-of-type(4) input[type=radio]:checked) > div:nth-of-type(3) > div:nth-of-type(2) > div:nth-child(7n+3) {
+  opacity:.6;
+  animation-delay: 2s;
+  animation-timing-function:ease-in;
+}
+
+body:has(> div:first-of-type > div:nth-of-type(4) > div:nth-of-type(2) > div:nth-of-type(3) input[type=radio]:checked) > div:nth-of-type(3) > div:nth-of-type(2) > div:nth-child(7n+4),
+body:has(> div:first-of-type > div:nth-of-type(4) > div:nth-of-type(2) > div:nth-of-type(4) input[type=radio]:checked) > div:nth-of-type(3) > div:nth-of-type(2) > div:nth-child(7n+4) {
+  opacity:.7;
+  animation-delay: 2.5s;
+  animation-timing-function:linear;
+}
+
+body:has(> div:first-of-type > div:nth-of-type(4) > div:nth-of-type(2) > div:nth-of-type(3) input[type=radio]:checked) > div:nth-of-type(3) > div:nth-of-type(2) > div:nth-child(7n+5),
+body:has(> div:first-of-type > div:nth-of-type(4) > div:nth-of-type(2) > div:nth-of-type(4) input[type=radio]:checked) > div:nth-of-type(3) > div:nth-of-type(2) > div:nth-child(7n+5) {
+  opacity:.8;
+  animation-delay: 3s;
+  animation-timing-function:ease-out;
+}
+
+body:has(> div:first-of-type > div:nth-of-type(4) > div:nth-of-type(2) > div:nth-of-type(3) input[type=radio]:checked) > div:nth-of-type(3) > div:nth-of-type(2) > div:nth-child(7n+6),
+body:has(> div:first-of-type > div:nth-of-type(4) > div:nth-of-type(2) > div:nth-of-type(4) input[type=radio]:checked) > div:nth-of-type(3) > div:nth-of-type(2) > div:nth-child(7n+6) {
+  opacity:.9;
+  animation-delay: 3.5s;
+  animation-timing-function:ease-in;
+}
+
+/* ------------- */
+/* CATS AND DOGS */
+/* ------------- */
+
+body:has(> div:first-of-type > div:nth-of-type(4) > div:nth-of-type(2) > div:nth-of-type(4) input[type=radio]:checked) > div:nth-of-type(3) > div:nth-of-type(2) > div {
+  display: inline-block;
+  position: relative;
+  animation: catsanddogs 3s linear 2s 20;
+  top: -100px;
+}
+
+/* Setting the color */
+body:has(> div:first-of-type > div:nth-of-type(4) > div:nth-of-type(2) > div:nth-of-type(4) input[type=radio]:checked) > div:nth-of-type(3) > div:nth-of-type(2) > div:nth-of-type(2n)::after {
+  content: "🐕";
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+}
+
+body:has(> div:first-of-type > div:nth-of-type(4) > div:nth-of-type(2) > div:nth-of-type(4) input[type=radio]:checked) > div:nth-of-type(3) > div:nth-of-type(2) > div:nth-of-type(2n+1)::after {
+  content: "🐈";
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+}
+
+
+/* ----------------------------------------------------------------- */
+/* VARIATION IN CATS AND DOGS SIZE AND ANIMATION DURATION AND ORIGIN */
+/* ----------------------------------------------------------------- */
+body:has(> div:first-of-type > div:nth-of-type(4) > div:nth-of-type(2) > div:nth-of-type(4) input[type=radio]:checked) > div:nth-of-type(3) > div:nth-of-type(2) > div:nth-child(3n) {
+	min-width: 32px; height: 8px;
+	animation-duration: 4s;
+	animation-iteration-count: 30;
+	transform-origin: right -45px;
+}
+
+body:has(> div:first-of-type > div:nth-of-type(4) > div:nth-of-type(2) > div:nth-of-type(4) input[type=radio]:checked) > div:nth-of-type(3) > div:nth-of-type(2) > div:nth-child(3n+1) {
+	min-width: 64px; height: 12px;
+	animation-duration: 6s;
+	animation-iteration-count: 45;
+	transform-origin: right -30px;
+}
+
+
+body:has(> div:first-of-type > div:nth-of-type(4) > div:nth-of-type(2) > div:nth-of-type(4) input[type=radio]:checked) > div:nth-of-type(3) > div:nth-of-type(2) > div:nth-child(3n+2) {
+	min-width: 81px; height: 15px;
+	animation-duration: 8s;
+	animation-iteration-count: 60;
+	transform-origin: right -15px;
+}
+
+/* ----------------------- */
+/* CATS AND DOGS ANIMATION */
+/* ----------------------- */
+@keyframes catsanddogs {
+	0% {
+		transform: translate3d(0,0,0) rotate(0deg);
+	}
+	100% {
+		transform: translate3d(15px, 1200px, 0px) rotate(360deg);
+	};
+}
+
+/* -------------------------------- */
+/* THE SNOW HAS MELTED (IF TOO HOT) */
+/* -------------------------------- */
+
+body > div:last-of-type {
+  visibility: hidden;
   position: absolute;
-  width: 400px;
-  height: 200px;
-  top: 90px;
-  margin-left: auto;
-  margin-right: auto;
-  transition: all 1s ease-out;
+  top: 5vh;
+  right: 5vw;
+  z-index: 9999;
+
+  width: 20vh;
+  padding: 2rem;
+
+  background-color: white;
+  box-shadow: var(--box-shadow);
+  border: var(--border);
 }
 
-/* PIN INDICATOR */
-body > div:nth-of-type(4) > div:first-of-type > div:nth-of-type(5) {
-    position: absolute;
-    z-index: 10;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    transform-origin: bottom center;
-    transform: rotate(-85deg);
+/* body:has(> div:first-of-type > div:nth-of-type(4) > div:nth-of-type(2) > div:nth-of-type(3) input[type=radio]:checked) > div:last-of-type {
+  visibility: visible;
+}  */
 
-
-    height: 150px;
-    width: 5px;
-    border-radius: 35%;
-    background-color: silver;
-    box-shadow: inset hsla(0, 0%, 15%, 0.8) 0 -2px 1px 2px,
-    inset hsla(0, 0%, 0%, 0.25) 0 -1px 0px 1px,
-    inset hsla(0, 0%, 100%, 0.7) 0 1px 1px 3px;;
+body > div:first-of-type:has(div:nth-of-type(4) > div:nth-of-type(2) > div:nth-of-type(3) > input[type=radio]:checked, div:nth-of-type(2):has(input[type=radio]:last-of-type:checked)) div:last-of-type {
+  visibility: visible;
 }
