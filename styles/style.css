@@ -1,3 +1,6 @@
+/* display: grid;
+place-items: end center; */
+
 @font-face {
   font-family: AzeretMono;
   src: url(../fonts/AzeretMono-VariableFont_wght.ttf);
@@ -75,7 +78,9 @@
     --box-shadow: -2px -2px;
 }
 
-
+/* --------------------- */
+/* BASICS AND SITE TITLE */
+/* --------------------- */
 body {
   /* font-family: Arial, Helvetica, sans-serif; */
   font-family: "AzeretMono", monospace;
@@ -86,84 +91,81 @@ body {
   width: 100vw;
 
   overflow: hidden;
-}
 
-body > section {
-  position: absolute;
-  top: 5%;
-  left: 50%;
-  transform: translateX(-50%);
-  text-align: center;
-}
+  & > section {
+    position: absolute;
+    top: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
 
-/* ---------- */
-/* SITE TITLE */
-/* ---------- */
+    h1 { 
+      display: block;
+      font-size: 3.5rem;
+      font-weight: 800;
+      color: white;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      letter-spacing: -.35em;
+      margin: 0;
+      padding: 0 80px;
+      text-shadow: 0 0 1px #ffffff; /* 1px outline */
 
-h1 { 
-  display: block;
-  font-size: 3.5rem;
-  font-weight: 800;
-  color: white;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  letter-spacing: -.35em;
-  margin: 0;
-  padding: 0 80px;
-  text-shadow: 0 0 1px #ffffff; /* 1px outline */
+      & span {
+        display: inline-block;
 
-  & span {
-    display: inline-block;
+        &:first-of-type {
+          rotate: 7deg;
+        }
 
-     &:first-of-type {
-      rotate: 7deg;
-     }
+        &:nth-of-type(2) {
+          rotate: -4deg;
+        }
 
-     &:nth-of-type(2) {
-      rotate: -4deg;
-     }
+        &:nth-of-type(3) { 
+          rotate: 2deg;
+        }
 
-     &:nth-of-type(3) { 
-      rotate: 2deg;
-    }
+        &:nth-of-type(4) { 
+          rotate: 6deg;
+        }
 
-    &:nth-of-type(4) { 
-     rotate: 6deg;
-    }
+        &:nth-of-type(5) { 
+          rotate: -2deg;
+        }
 
-    &:nth-of-type(5) { 
-      rotate: -2deg;
-    }
+        &:nth-of-type(6) { 
+          rotate: 2deg;
+        }
 
-    &:nth-of-type(6) { 
-      rotate: 2deg;
-    }
+        &:nth-of-type(7) { 
+          rotate: -5deg;
+        }
 
-    &:nth-of-type(7) { 
-      rotate: -5deg;
-    }
+        &:nth-of-type(8) { 
+         rotate: 9deg;
+        }
 
-    &:nth-of-type(8) { 
-      rotate: 9deg;
-    }
+        &:nth-of-type(9) { 
+         rotate: 1deg;
+        }
 
-    &:nth-of-type(9) { 
-      rotate: 1deg;
-    }
-
-    &:nth-of-type(10) { 
-      rotate: -3deg;
-    }
+        &:nth-of-type(10) { 
+          rotate: -3deg;
+        }
   }
 
-}
+    }
 
-h2 {
-  font-size: 1rem;
-  font-weight: 400;
-  color: black;
-  margin-top: auto;
-  margin-bottom: 13vh;
+    h2 {
+      font-size: 1rem;
+      font-weight: 400;
+      color: black;
+      margin-top: auto;
+      margin-bottom: 13vh;
+    }
+  }
 }
 
 /* ------------- */
@@ -207,122 +209,6 @@ input[type=range]::-moz-range-track {
   box-shadow: -1px -1px inset;
 }
 
-/* ----------------- */
-/* SETTING THE SCENE */
-/* ----------------- */
-
-/* Standard cloud */
-body > div:nth-of-type(4) {
-  & div {
-    position: absolute;
-    left: 0;
-    background: white;
-    border-radius: 1000px;
-    animation: zoomies 10s infinite linear;
-    z-index: 500;
-
-    &::before {
-      content: "";
-      position: absolute;
-      top: -80%;
-      left: 10%;
-      width: 50%;
-      height: 150%;
-      background: white;
-      border-radius: 50%;
-    }
-
-    &::after {
-      content: "";
-      position: absolute;
-      top: -40%;
-      right: 20%;
-      width: 30%;
-      height: 100%;
-      background: white;
-      border-radius: 50%;
-    }
-
-    &:first-of-type {
-      height: 60px;
-    width: 200px;
-    top: 20vh;
-    }
-
-    &:nth-of-type(2) {
-      height: 40px;
-      width: 140px;
-      top: 10vh;
-      animation-duration: 12s;
-    }
-
-    &:nth-of-type(3) { /* Cloud #3 */
-      height: 75px;
-      width: 225px;
-      top: 40vh;
-      animation-duration: 18s;
-    }
-
-    &:nth-of-type(4) { /* Cloud #4 */
-      height: 50px;
-      width: 160px;
-      top: 65vh;
-      animation-duration: 15s;
-    }
-  }
-}
-
-@keyframes zoomies {
-  from {
-    left: 0;
-    transform: translateX(-100%);
-  }
-
-  to {
-    left: 100%;
-    transform: translateX(0%);
-  }
-}
-
-/* ------- */
-/* THE SUN */
-/* ------- */
-
-body > div:nth-of-type(2) {
-
-  margin-left: 50px;
-  height: 150px;
-  width: 150px;
-  border-radius: 50%;
-  background: var(--color-sun-gradient);
-  box-shadow: 0 0 15px 15px var(--color-sun);
-  transition: all .3s ease-in-out;
-}
-
-/* ------------- */
-/* PRECIPITATION */
-/* ------------- */
-
-body > div:nth-of-type(3) {
-  margin: 0;
-  overflow: hidden;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 400;
-
-  & div:first-of-type div {
-    position: absolute;
-    background: white;
-    width: 5px;
-    height: 25px;
-    top: -100px;
-  }
-}
-
 /* ------------- */
 /* CONTROL PANEL */
 /* ------------- */
@@ -334,7 +220,7 @@ body > div:first-of-type {
 
   border-radius: 20px 20px 0 0;
   border: var(--border);
-  box-shadow: -1px -1px;
+  box-shadow: -3px -3px;
 
   position: absolute;
   bottom: 0;
@@ -532,6 +418,7 @@ body > div:first-of-type {
       margin-top: .5rem;
 
       & h3 {
+        grid-area: 1 / 3 / 3 / 4;
         padding: 0 2.5vw;
         margin-bottom: 0;
 
@@ -539,9 +426,8 @@ body > div:first-of-type {
           grid-area: 1 / 1 / 2 / 2;
         }
       }
-
       /* -------- */
-      /* CONTROLS */
+      /* GENERAL CONTROLS */
       /* -------- */
 
       & > div {
@@ -568,84 +454,278 @@ body > div:first-of-type {
           }
         }
       }
+
+      /* ------------- */
+      /* PRECIPITATION */
+      /* ------------- */
+
+      & > div:nth-of-type(2) {
+        grid-area: 2 / 3 / 3 / 4;
+        display: flex;
+        gap: 5vw;
+        text-align: center;
+
+        & > div {
+          & input[type=radio] {
+            appearance: none;
+            height: 5vh;
+            width: 1.5rem;
+            border-radius: 5px;
+            border: var(--border);
+            background-color: var(--color-orange);
+            box-shadow: var(--box-shadow);
+            position: relative;
+            cursor: pointer;
+            transition: all .3s ease-in-out;
+
+            &::before {
+              display: inline-block;
+              content: "";
+              z-index: 10;
+              height: 3.5vh;
+              width: .75rem;
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%, -50%);
+              border-radius: 2.5px;
+              box-shadow: -2px -2px inset;
+              background-color: white;
+              border: var(--border);
+            }
+
+            &::after {
+              display: inline-block;
+              content: "";
+              background-color: var(--color-lilac);
+              border: var(--border);
+              width: 15px;
+              height: 15px;
+              border-radius: 50%;
+              
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              transform: translateX(-50%);
+              
+              box-shadow: 0px -2px;
+              z-index: 9999;
+              transition: all .3s ease-in-out;
+            }
+
+            &:checked {
+              background-color: var(--color-lilac);
+
+              &::after {
+                background-color: var(--color-orange);
+                top: 0%;
+                box-shadow: 0px 2px;
+              }
+            }
+          }
+        }
+      }
     }
+}
+
+/* ----------------- */
+/* SETTING THE SCENE */
+/* ----------------- */
+
+/* ------- */
+/* THE SUN */
+/* ------- */
+
+body > div:nth-of-type(2) {
+
+  margin-left: 50px;
+  margin-top: 50px;
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+  background: var(--color-sun-gradient);
+  box-shadow: 0 0 15px 15px var(--color-sun);
+  transition: all .3s ease-in-out;
 }
 
 /* ------------- */
 /* PRECIPITATION */
 /* ------------- */
 
-/* body > control panel > flat part > types of precipitation */
-body > div:first-of-type > div:nth-of-type(4) > div:nth-of-type(2) {
-  grid-area: 2 / 3 / 3 / 4;
-  display: flex;
-  gap: 5vw;
-  text-align: center;
+body > div:nth-of-type(3) {
+  margin: 0;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 400;
+
+  & div:first-of-type div {
+    position: absolute;
+    background: white;
+    width: 5px;
+    height: 25px;
+    top: -100px;
+  }
 }
 
-body > div:first-of-type > div:nth-of-type(4) > h3 {
-  grid-area: 1 / 3 / 3 / 4;
+/* ---------- */
+/* THE CLOUDS */
+/* ---------- */
+body > div:nth-of-type(4) {
+  & div {
+    position: absolute;
+    left: 0;
+    background: white;
+    border-radius: 1000px;
+    animation: zoomies 10s infinite linear;
+    z-index: 500;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: -80%;
+      left: 10%;
+      width: 50%;
+      height: 150%;
+      background-color: rgba(255, 255, 255, var(--before-opacity, 1));
+      z-index: -1;
+      border-radius: 50%;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: -40%;
+      right: 20%;
+      width: 30%;
+      height: 100%;
+      background-color: rgba(255, 255, 255, var(--after-opacity, 1));
+      z-index: -2;
+      border-radius: 50%;
+    }
+
+    /* ------ */
+    /* SIZING */
+    /* ------ */
+
+    &:nth-of-type(6n+1) {
+      height: 60px;
+      width: 200px;
+    }
+
+    &:nth-of-type(6n+2) {
+      height: 75px;
+      width: 225px;
+    }
+
+    &:nth-of-type(6n+3) {
+      height: 40px;
+      width: 140px;
+    }
+
+    &:nth-of-type(6n+4) {
+      height: 50px;
+      width: 160px;
+    }
+
+    &:nth-of-type(6n+5) {
+      height: 30px;
+      width: 120px;
+    }
+
+    &:nth-of-type(6n+6) {
+      height: 90px;
+      width: 275px;
+    }
+
+    /* ------------------ */
+    /* ANIMATION DURATION */
+    /* ------------------ */
+
+    &:nth-of-type(4n+1) {
+      animation-duration: 14s;
+    }
+
+    &:nth-of-type(4n+2) {
+      animation-duration: 20s;
+    }
+
+    &:nth-of-type(4n+3) {
+      animation-duration: 32s;
+    }
+
+    &:nth-of-type(4n+4) {
+      animation-duration: 41s;
+    }
+
+    /* ----------- */
+    /* POSITIONING */
+    /* ----------- */
+
+    &:nth-of-type(12n+1) {
+      top: 20vh;
+    }
+
+    &:nth-of-type(12n+2) {
+      top: 10vh;
+    }
+
+    &:nth-of-type(12n+3) {
+      top: 40vh;
+    }
+
+    &:nth-of-type(12n+4) {
+      top: 65vh;
+    }
+
+    &:nth-of-type(12n+5) {
+      top: 53vh;
+    }
+
+    &:nth-of-type(12n+6) {
+      top: 31vh;
+    }
+
+    &:nth-of-type(12n+7) {
+      top: 70vh;
+    }
+
+    &:nth-of-type(12n+8) {
+      top: 83vh;
+    }
+
+    &:nth-of-type(12n+9) {
+      top: 36vh;
+    }
+
+    &:nth-of-type(12n+10) {
+      top: 15vh;
+    }
+
+    &:nth-of-type(12n+11) {
+      top: 5vh;
+    }
+
+    &:nth-of-type(12n+12) {
+      top: 79vh;
+    }
+  }
 }
-/* INDIVIDUAL SWITCHES */
-body > div:first-of-type > div:nth-of-type(4) > div:nth-of-type(2) > div input[type=radio]{
-  appearance: none;
-}
 
-body > div:first-of-type > div:nth-of-type(4) > div:nth-of-type(2) > div input[type=radio] {
-  height: 5vh;
-  width: 1.5rem;
-  border-radius: 5px;
-  border: var(--border);
-  background-color: var(--color-orange);
-  box-shadow: var(--box-shadow);
-  position: relative;
-  cursor: pointer;
-  transition: all .3s ease-in-out;
-}
+@keyframes zoomies {
+  from {
+    left: 0;
+    transform: translateX(-100%);
+  }
 
-body > div:first-of-type > div:nth-of-type(4) > div:nth-of-type(2) > div input[type=radio]::before {
-  display: inline-block;
-  content: "";
-  z-index: 10;
-  height: 3.5vh;
-  width: .75rem;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  border-radius: 2.5px;
-  box-shadow: -2px -2px inset;
-  background-color: white;
-  border: var(--border);
-}
-
-body > div:first-of-type > div:nth-of-type(4) > div:nth-of-type(2) > div input[type=radio]::after {
-  display: inline-block;
-  content: "";
-  background-color: var(--color-lilac);
-  border: var(--border);
-  width: 15px;
-  height: 15px;
-  border-radius: 50%;
-
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translateX(-50%);
-
-  box-shadow: 0px -2px;
-  z-index: 9999;
-  transition: all .3s ease-in-out;
-}
-
-body > div:first-of-type > div:nth-of-type(4) > div:nth-of-type(2) > div input[type=radio]:checked {
-  background-color: var(--color-lilac);
-}
-
-body > div:first-of-type > div:nth-of-type(4) > div:nth-of-type(2) > div input[type=radio]:checked::after {
-  background-color: var(--color-orange);
-  top: 0%;
-  box-shadow: 0px 2px;
+  to {
+    left: 100%;
+    transform: translateX(0%);
+  }
 }
 
 
@@ -658,113 +738,127 @@ body > div:first-of-type > div:nth-of-type(4) > div:nth-of-type(2) > div input[t
 /* ----------- */
 
 /* THE PIN NEEDLE */
-body > div:first-of-type > div:nth-of-type(2):has(> input[type=radio]:first-of-type:checked) + div {
-  transform: rotate(-85deg);
+body > div:first-of-type {
+  & > div:nth-of-type(2):has(>input[type=radio]:first-of-type:checked) + div {
+    transform: rotate(-85deg);
+  }
+
+  & > div:nth-of-type(2):has(>input[type=radio]:nth-of-type(2):checked) + div {
+      transform: rotate(0deg);
+    }
+
+  & > div:nth-of-type(2):has(>input[type=radio]:nth-of-type(3):checked) + div {
+      transform: rotate(85deg);
+  }
 }
 
-body > div:first-of-type > div:nth-of-type(2):has(> input[type=radio]:nth-of-type(2):checked) + div {
-  transform: rotate(0deg);
-}
+/* ------------------- */
+/* THE SUN AND THE SKY */
+/* ------------------- */
 
-body > div:first-of-type > div:nth-of-type(2):has(> input[type=radio]:last-of-type:checked) + div {
-  transform: rotate(85deg);
-}
-
-/* THE SUN */
-body:has(> div:first-of-type > div:nth-of-type(2) > input[type=radio]:first-of-type:checked) > div:nth-of-type(2) {
-  background: var(--color-coldsun-gradient);
-  box-shadow: 0 0 15px 5px var(--color-coldsun);
-}
-
-body:has(> div:first-of-type > div:nth-of-type(2) > input[type=radio]:nth-of-type(2):checked) > div:nth-of-type(2) {
-  background: var(--color-sun-gradient);
-  box-shadow: 0 0 15px 15px var(--color-sun);
-}
-
-body:has(> div:first-of-type > div:nth-of-type(2) > input[type=radio]:nth-of-type(3):checked) > div:nth-of-type(2) {
-  background: var(--color-warmsun-gradient);
-  box-shadow: 0 0 15px 20px var(--color-warmsun);
-}
-
-/* THE SKY */
+/* Brrrrr cold */
 body:has(> div:first-of-type > div:nth-of-type(2) > input[type=radio]:first-of-type:checked) {
   background: var(--color-coldsky);
+
+  > div:nth-of-type(2) {
+    background: var(--color-coldsun-gradient);
+    box-shadow: 0 0 15px 15px var(--color-coldsun);
+  }
 }
 
+/* Ahhh nice weather */
 body:has(> div:first-of-type > div:nth-of-type(2) > input[type=radio]:nth-of-type(2):checked) {
   background: var(--color-regsky);
+
+  > div:nth-of-type(2) {
+    background: var(--color-sun-gradient);
+    box-shadow: 0 0 15px 15px var(--color-sun);
+  }
 }
 
+/* Ooff hot */
 body:has(> div:first-of-type > div:nth-of-type(2) > input[type=radio]:nth-of-type(3):checked) {
   background: var(--color-hotsky);
+
+  > div:nth-of-type(2) {
+    background: var(--color-warmsun-gradient);
+    box-shadow: 0 0 15px 20px var(--color-warmsun);
+  }
 }
+
 
 /* ------------- */
 /* PRECIPITATION */
 /* ------------- */
 
+/* ---- */
 /* RAIN */
-body:has(> div:first-of-type > div:nth-of-type(4) > div:nth-of-type(2) > div:nth-of-type(2) input[type=radio]:checked) > div:nth-of-type(3) > div:first-of-type > div {
-  animation: fall linear infinite;
-  position: absolute;
-  background: white;
-  width: 5px;
-  height: 25px;
-  top: -100px;
-}
-
-/* Rainfall animation */
-  @keyframes fall {
-    0% {
-      transform: translateY(-50px);
-      opacity: 0;
-    }
-    50% {
-      opacity: 1;
-    }
-    100% {
-      transform: translateY(100vw);
-      opacity: 0;
+/* ---- */
+body:has(> div:first-of-type > div:nth-of-type(4) > div:nth-of-type(2) > div:nth-of-type(2) input[type=radio]:checked) {
+  > div:nth-of-type(3) {
+    > div:first-of-type > div {
+      animation: fall linear infinite;
+      position: absolute;
+      background: white;
+      width: 10px;
+      height: 10px;
+      border-radius: 80% 0 55% 50% / 55% 0 80% 50%;
+      margin-top: 20px;
+      top: -100px;
     }
   }
+} 
+
+/* Rainfall animation */
+@keyframes fall {
+  0% {
+    transform: translateY(-50px) rotate(-45deg);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vw) rotate(-45deg);
+    opacity: 0;
+  }
+}
 
 /* ---------- */
 /* SNOWFLAKES */
 /* ---------- */
 
-body:has(> div:first-of-type > div:nth-of-type(4) > div:nth-of-type(2) > div:nth-of-type(3) input[type=radio]:checked) > div:nth-of-type(3) > div:nth-of-type(2) > div {
-  display: inline-block;
-  position: relative;
-  width: 5px;
-  height: 25px;
-  animation: snowflakes 3s linear 2s 20;
-  top: -100px;
-}
+body:has(> div:first-of-type > div:nth-of-type(4) > div:nth-of-type(2) > div:nth-of-type(3) input[type=radio]:checked) {
+  > div:nth-of-type(3) {
+    > div:nth-of-type(2) {
+      > div {
+        display: inline-block;
+        position: relative;
+        width: 5px;
+        height: 25px;
+        animation: snowflakes 3s linear 2s 20;
+        top: -100px;
+        background: white;
 
-/* Setting the color */
-body:has(> div:first-of-type > div:nth-of-type(4) > div:nth-of-type(2) > div:nth-of-type(3) input[type=radio]:checked) > div:nth-of-type(3) > div:nth-of-type(2) > div,
-body:has(> div:first-of-type > div:nth-of-type(4) > div:nth-of-type(2) > div:nth-of-type(3) input[type=radio]:checked) > div:nth-of-type(3) > div:nth-of-type(2) > div::after,
-body:has(> div:first-of-type > div:nth-of-type(4) > div:nth-of-type(2) > div:nth-of-type(3) input[type=radio]:checked) > div:nth-of-type(3) > div:nth-of-type(2) > div::before {
-  background: white;
-}
+        &::after, &::before {
+          background: white;
+          position: absolute;
+          background-color: white;
+          height: 100%;
+	        width: 100%;
+	        content: ".";
+	        position: absolute;
+	        top: 0px;
+	        left: 0px;
+          transform: rotate(120deg);
+        }
 
-/* Adding a before and after for the snowflake shape */
-body:has(> div:first-of-type > div:nth-of-type(4) > div:nth-of-type(2) > div:nth-of-type(3) input[type=radio]:checked) > div:nth-of-type(3) > div:nth-of-type(2) > div::after,
-body:has(> div:first-of-type > div:nth-of-type(4) > div:nth-of-type(2) > div:nth-of-type(3) input[type=radio]:checked) > div:nth-of-type(3) > div:nth-of-type(2) > div::before {
-  position: absolute;
-  background-color: white;
-  height: 100%;
-	width: 100%;
-	content: ".";
-	position: absolute;
-	top: 0px;
-	left: 0px;
-  transform: rotate(120deg);
-}
-
-/* Rotating the before in another direction */
-body:has(> div:first-of-type > div:nth-of-type(4) > div:nth-of-type(2) > div:nth-of-type(3) input[type=radio]:checked) > div:nth-of-type(3) > div:nth-of-type(2) > div::before {
-  transform: rotate(240deg);
+        &::before {
+          transform: rotate(240deg);
+        }
+      }
+    }
+  }
 }
 
 /* The snowflakes falling */
@@ -780,142 +874,230 @@ body:has(> div:first-of-type > div:nth-of-type(4) > div:nth-of-type(2) > div:nth
 /* -------------------------------------------------------------- */
 /* VARIATION IN SNOWFLAKES SIZE AND ANIMATION DURATION AND ORIGIN */
 /* -------------------------------------------------------------- */
-body:has(> div:first-of-type > div:nth-of-type(4) > div:nth-of-type(2) > div:nth-of-type(3) input[type=radio]:checked) > div:nth-of-type(3) > div:nth-of-type(2) > div:nth-child(3n) {
-	width: 16px; height: 4px;
-	animation-duration: 4s;
-	animation-iteration-count: 30;
-	transform-origin: right -45px;
+body:has(> div:first-of-type > div:nth-of-type(4) > div:nth-of-type(2) > div:nth-of-type(3) input[type=radio]:checked) {
+  > div:nth-of-type(3) {
+    > div:nth-of-type(2) {
+      > div:nth-child(3n+1) {
+        width: 24px; height: 6px;
+        animation-duration: 6s;
+        animation-iteration-count: 45;
+        transform-origin: right -1.875rem;
+      }
+
+      > div:nth-child(3n+2) {
+        width: 32px; height: 8px;
+        animation-duration: 8s;
+        animation-iteration-count: 60;
+        transform-origin: right -1.25rem;
+      }
+
+      > div:nth-child(3n+3) {
+        width: 16px; height: 4px;
+        animation-duration: 4s;
+        animation-iteration-count: 30;
+        transform-origin: right -2.8125rem;
+      }
+    }
+  }
 }
 
-body:has(> div:first-of-type > div:nth-of-type(4) > div:nth-of-type(2) > div:nth-of-type(3) input[type=radio]:checked) > div:nth-of-type(3) > div:nth-of-type(2) > div:nth-child(3n+1) {
-	width: 24px; height: 6px;
-	animation-duration: 6s;
-	animation-iteration-count: 45;
-	transform-origin: right -30px;
-}
+/* --------------------------------*/
+/* VARIATION IN DELAYS: SNOWFLAKES */
+/* ------------------------------- */
 
-body:has(> div:first-of-type > div:nth-of-type(4) > div:nth-of-type(2) > div:nth-of-type(2) input[type=radio]:checked) > div:nth-of-type(3) > div:nth-of-type(2) > div:nth-child(3n+2) {
-	width: 32px; height: 8px;
-	animation-duration: 8s;
-	animation-iteration-count: 60;
-	transform-origin: right -15px;
-}
+body:has(> div:first-of-type > div:nth-of-type(4) > div:nth-of-type(2) > div:nth-of-type(3) input[type=radio]:checked) {
+  div:nth-of-type(3) {
+    div:nth-of-type(2) {
+      div:nth-child(7n) {
+        opacity:.3;
+        animation-delay: 0s;
+        animation-timing-function:ease-in;
+      }
 
-/* ----------------------------------------------- */
-/* VARIATION IN DELAYS: SNOWFLAKES + CATS AND DOGS */
-/* ----------------------------------------------- */
-body:has(> div:first-of-type > div:nth-of-type(4) > div:nth-of-type(2) > div:nth-of-type(3) input[type=radio]:checked) > div:nth-of-type(3) > div:nth-of-type(2) > div:nth-child(7n),
-body:has(> div:first-of-type > div:nth-of-type(4) > div:nth-of-type(2) > div:nth-of-type(4) input[type=radio]:checked) > div:nth-of-type(3) > div:nth-of-type(2) > div:nth-child(7n) {
-  opacity:.3;
-  animation-delay: 0s;
-  animation-timing-function:ease-in;
-}
+      div:nth-child(7n+1) {
+        opacity:.4;
+        animation-delay: 1s;
+        animation-timing-function:ease-out;
+      }
 
-body:has(> div:first-of-type > div:nth-of-type(4) > div:nth-of-type(2) > div:nth-of-type(3) input[type=radio]:checked) > div:nth-of-type(3) > div:nth-of-type(2) > div:nth-child(7n+1),
-body:has(> div:first-of-type > div:nth-of-type(4) > div:nth-of-type(2) > div:nth-of-type(4) input[type=radio]:checked) > div:nth-of-type(3) > div:nth-of-type(2) > div:nth-child(7n+1) {
-  opacity:.4;
-  animation-delay: 1s;
-  animation-timing-function:ease-out;
-}
+      div:nth-child(7n+2) {
+        opacity:.5;
+        animation-delay: 1.5s;
+        animation-timing-function:linear;
+      }
 
-body:has(> div:first-of-type > div:nth-of-type(4) > div:nth-of-type(2) > div:nth-of-type(3) input[type=radio]:checked) > div:nth-of-type(3) > div:nth-of-type(2) > div:nth-child(7n+2),
-body:has(> div:first-of-type > div:nth-of-type(4) > div:nth-of-type(2) > div:nth-of-type(4) input[type=radio]:checked) > div:nth-of-type(3) > div:nth-of-type(2) > div:nth-child(7n+2) {
-  opacity:.5;
-  animation-delay: 1.5s;
-  animation-timing-function:linear;
-}
+      div:nth-child(7n+3) {
+        opacity:.6;
+        animation-delay: 2s;
+        animation-timing-function:ease-in;
+      }
 
-body:has(> div:first-of-type > div:nth-of-type(4) > div:nth-of-type(2) > div:nth-of-type(3) input[type=radio]:checked) > div:nth-of-type(3) > div:nth-of-type(2) > div:nth-child(7n+3),
-body:has(> div:first-of-type > div:nth-of-type(4) > div:nth-of-type(2) > div:nth-of-type(4) input[type=radio]:checked) > div:nth-of-type(3) > div:nth-of-type(2) > div:nth-child(7n+3) {
-  opacity:.6;
-  animation-delay: 2s;
-  animation-timing-function:ease-in;
-}
+      div:nth-child(7n+4) {
+        opacity:.7;
+        animation-delay: 2.5s;
+        animation-timing-function:linear;
+      }
 
-body:has(> div:first-of-type > div:nth-of-type(4) > div:nth-of-type(2) > div:nth-of-type(3) input[type=radio]:checked) > div:nth-of-type(3) > div:nth-of-type(2) > div:nth-child(7n+4),
-body:has(> div:first-of-type > div:nth-of-type(4) > div:nth-of-type(2) > div:nth-of-type(4) input[type=radio]:checked) > div:nth-of-type(3) > div:nth-of-type(2) > div:nth-child(7n+4) {
-  opacity:.7;
-  animation-delay: 2.5s;
-  animation-timing-function:linear;
-}
+      div:nth-child(7n+5) {
+        opacity:.8;
+        animation-delay: 3s;
+        animation-timing-function:ease-out;
+      }
 
-body:has(> div:first-of-type > div:nth-of-type(4) > div:nth-of-type(2) > div:nth-of-type(3) input[type=radio]:checked) > div:nth-of-type(3) > div:nth-of-type(2) > div:nth-child(7n+5),
-body:has(> div:first-of-type > div:nth-of-type(4) > div:nth-of-type(2) > div:nth-of-type(4) input[type=radio]:checked) > div:nth-of-type(3) > div:nth-of-type(2) > div:nth-child(7n+5) {
-  opacity:.8;
-  animation-delay: 3s;
-  animation-timing-function:ease-out;
-}
-
-body:has(> div:first-of-type > div:nth-of-type(4) > div:nth-of-type(2) > div:nth-of-type(3) input[type=radio]:checked) > div:nth-of-type(3) > div:nth-of-type(2) > div:nth-child(7n+6),
-body:has(> div:first-of-type > div:nth-of-type(4) > div:nth-of-type(2) > div:nth-of-type(4) input[type=radio]:checked) > div:nth-of-type(3) > div:nth-of-type(2) > div:nth-child(7n+6) {
-  opacity:.9;
-  animation-delay: 3.5s;
-  animation-timing-function:ease-in;
+      div:nth-child(7n+6) {
+        opacity:.9;
+        animation-delay: 3.5s;
+        animation-timing-function:ease-in;
+      }
+    }
+  }
 }
 
 /* ------------- */
 /* CATS AND DOGS */
 /* ------------- */
 
-body:has(> div:first-of-type > div:nth-of-type(4) > div:nth-of-type(2) > div:nth-of-type(4) input[type=radio]:checked) > div:nth-of-type(3) > div:nth-of-type(2) > div {
-  display: inline-block;
-  position: relative;
-  animation: catsanddogs 3s linear 2s 20;
-  top: -100px;
-}
+body:has(> div:first-of-type > div:nth-of-type(4) > div:nth-of-type(2) > div:nth-of-type(4) input[type=radio]:checked) {
+  div:nth-of-type(3) {
+    div:nth-of-type(2) {
+      div {
+        display: inline-block;
+        position: relative;
+        animation: catsanddogs .5s linear;
+        top: -200px;
+        transform-origin: center;
+        height: 32px;
+        width: 32px;
 
-/* Setting the color */
-body:has(> div:first-of-type > div:nth-of-type(4) > div:nth-of-type(2) > div:nth-of-type(4) input[type=radio]:checked) > div:nth-of-type(3) > div:nth-of-type(2) > div:nth-of-type(2n)::after {
-  content: "🐕";
-  display: inline-block;
-  height: 100%;
-  width: 100%;
-}
+        &:nth-of-type(2n) {
+          &::after {
+            content: "🐕";
+            display: inline-block;
+            font-size: 2em;
+            height: 100%;
+            width: 100%;
+            animation: twirlywhirly 3s linear 0s infinite;
+          }
+        }
 
-body:has(> div:first-of-type > div:nth-of-type(4) > div:nth-of-type(2) > div:nth-of-type(4) input[type=radio]:checked) > div:nth-of-type(3) > div:nth-of-type(2) > div:nth-of-type(2n+1)::after {
-  content: "🐈";
-  display: inline-block;
-  height: 100%;
-  width: 100%;
+         &:nth-of-type(2n+1) {
+          &::after {
+            content: "🐈";
+              display: inline-block;
+              font-size: 2em;
+              height: 100%;
+              width: 100%;
+              animation: twirlywhirly 3s linear 0s infinite;
+          }
+        }
+      }
+    }
+  }
 }
-
 
 /* ----------------------------------------------------------------- */
 /* VARIATION IN CATS AND DOGS SIZE AND ANIMATION DURATION AND ORIGIN */
 /* ----------------------------------------------------------------- */
-body:has(> div:first-of-type > div:nth-of-type(4) > div:nth-of-type(2) > div:nth-of-type(4) input[type=radio]:checked) > div:nth-of-type(3) > div:nth-of-type(2) > div:nth-child(3n) {
-	min-width: 32px; height: 8px;
-	animation-duration: 4s;
-	animation-iteration-count: 30;
-	transform-origin: right -45px;
+body:has(> div:first-of-type > div:nth-of-type(4) > div:nth-of-type(2) > div:nth-of-type(4) input[type=radio]:checked) {
+  > div:nth-of-type(3) {
+    > div:nth-of-type(2) {
+      > div:nth-child(3n+1) {
+        width: 24px; height: 6px;
+        animation-duration: 6s;
+        animation-iteration-count: 45;
+        transform-origin: right -1.875rem;
+      }
+
+      > div:nth-child(3n+2) {
+        width: 32px; height: 8px;
+        animation-duration: 8s;
+        animation-iteration-count: 60;
+        transform-origin: right -1.25rem;
+      }
+
+      > div:nth-child(3n+3) {
+        width: 16px; height: 4px;
+        animation-duration: 4s;
+        animation-iteration-count: 30;
+        transform-origin: right -2.8125rem;
+      }
+    }
+  }
 }
 
-body:has(> div:first-of-type > div:nth-of-type(4) > div:nth-of-type(2) > div:nth-of-type(4) input[type=radio]:checked) > div:nth-of-type(3) > div:nth-of-type(2) > div:nth-child(3n+1) {
-	min-width: 64px; height: 12px;
-	animation-duration: 6s;
-	animation-iteration-count: 45;
-	transform-origin: right -30px;
+/* ----------------------------------------------- */
+/* VARIATION IN DELAYS: CATS AND DOGS */
+/* ----------------------------------------------- */
+body:has(> div:first-of-type > div:nth-of-type(4) > div:nth-of-type(2) > div:nth-of-type(4) input[type=radio]:checked) {
+  div:nth-of-type(3) {
+    div:nth-of-type(2) {
+      div:nth-child(7n) {
+        opacity:.3;
+        animation-delay: 0s;
+        animation-timing-function:ease-in;
+      }
+
+      div:nth-child(7n+1) {
+        opacity:.4;
+        animation-delay: 1s;
+        animation-timing-function:ease-out;
+      }
+
+      div:nth-child(7n+2) {
+        opacity:.5;
+        animation-delay: 1.5s;
+        animation-timing-function:linear;
+      }
+
+      div:nth-child(7n+3) {
+        opacity:.6;
+        animation-delay: 2s;
+        animation-timing-function:ease-in;
+      }
+
+      div:nth-child(7n+4) {
+        opacity:.7;
+        animation-delay: 2.5s;
+        animation-timing-function:linear;
+      }
+
+      div:nth-child(7n+5) {
+        opacity:.8;
+        animation-delay: 3s;
+        animation-timing-function:ease-out;
+      }
+
+      div:nth-child(7n+6) {
+        opacity:.9;
+        animation-delay: 3.5s;
+        animation-timing-function:ease-in;
+      }
+    }
+  }
 }
 
-
-body:has(> div:first-of-type > div:nth-of-type(4) > div:nth-of-type(2) > div:nth-of-type(4) input[type=radio]:checked) > div:nth-of-type(3) > div:nth-of-type(2) > div:nth-child(3n+2) {
-	min-width: 81px; height: 15px;
-	animation-duration: 8s;
-	animation-iteration-count: 60;
-	transform-origin: right -15px;
-}
 
 /* ----------------------- */
 /* CATS AND DOGS ANIMATION */
 /* ----------------------- */
 @keyframes catsanddogs {
 	0% {
-		transform: translate3d(0,0,0) rotate(0deg);
+		transform: translateY(0);
 	}
 	100% {
-		transform: translate3d(15px, 1200px, 0px) rotate(360deg);
+		transform: translateY(1200px);
 	};
 }
+
+@keyframes twirlywhirly {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	};
+}
+
 
 /* -------------------------------- */
 /* THE SNOW HAS MELTED (IF TOO HOT) */
@@ -940,6 +1122,6 @@ body > div:last-of-type {
   visibility: visible;
 }  */
 
-body > div:first-of-type:has(div:nth-of-type(4) > div:nth-of-type(2) > div:nth-of-type(3) > input[type=radio]:checked, div:nth-of-type(2):has(input[type=radio]:last-of-type:checked)) div:last-of-type {
+/* body > div:first-of-type:has(div:nth-of-type(4) > div:nth-of-type(2) > div:nth-of-type(3) > input[type=radio]:checked, div:nth-of-type(2):has(input[type=radio]:last-of-type:checked)) div:last-of-type {
   visibility: visible;
-}
+} */
