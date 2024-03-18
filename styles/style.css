@@ -92,80 +92,218 @@ body {
   width: 100vw;
 
   overflow: hidden;
+}
 
-  & > section {
-    position: absolute;
-    top: 5%;
-    left: 50%;
-    transform: translateX(-50%);
-    text-align: center;
+body > section {
+  position: absolute;
+  top: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
 
-    h1 { 
-      display: block;
-      font-size: 3.5rem;
-      font-weight: 800;
-      color: white;
-      -webkit-background-clip: text;
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
-      letter-spacing: -.35em;
-      margin: 0;
-      padding: 0 80px;
-      text-shadow: 0 0 1px #ffffff; /* 1px outline */
+  h1:first-of-type { 
+    display: block;
+     position: absolute;
+    top: -2px;
+    left: -2px;
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: black;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: -.35em;
+    margin: 0;
+    padding: 0 80px;
+    text-shadow: -2px -1px 1px #000; /* 1px outline */
 
-      & span {
-        display: inline-block;
+    & span {
+      display: inline-block;
+      animation: jump 1s infinite alternate;
 
-        &:first-of-type {
-          rotate: 7deg;
-        }
+      &:first-of-type {
+        rotate: 7deg;
+        animation-delay: .1s;
+      }
 
-        &:nth-of-type(2) {
-          rotate: -4deg;
-        }
+      &:nth-of-type(2) {
+        rotate: -4deg;
+        animation-delay: .2s;
+      }
 
-        &:nth-of-type(3) { 
-          rotate: 2deg;
-        }
+      &:nth-of-type(3) { 
+        rotate: 2deg;
+        animation-delay: .3s;
+      }
 
-        &:nth-of-type(4) { 
-          rotate: 6deg;
-        }
+      &:nth-of-type(4) { 
+        rotate: 6deg;
+        animation-delay: .4s;
+      }
 
-        &:nth-of-type(5) { 
-          rotate: -2deg;
-        }
+      &:nth-of-type(5) { 
+        rotate: -2deg;
+        animation-delay: .5s;
+      }
 
-        &:nth-of-type(6) { 
-          rotate: 2deg;
-        }
+      &:nth-of-type(6) { 
+        rotate: 2deg;
+        animation-delay: .6s;
+      }
 
-        &:nth-of-type(7) { 
-          rotate: -5deg;
-        }
+      &:nth-of-type(7) { 
+        rotate: -5deg;
+        animation-delay: .7s;
+      }
 
-        &:nth-of-type(8) { 
-         rotate: 9deg;
-        }
+      &:nth-of-type(8) { 
+        rotate: 9deg;
+        animation-delay: .8s;
+      }
 
-        &:nth-of-type(9) { 
-         rotate: 1deg;
-        }
+      &:nth-of-type(9) { 
+        rotate: 1deg;
+        animation-delay: .9s;
+      }
 
-        &:nth-of-type(10) { 
-          rotate: -3deg;
-        }
+      &:nth-of-type(10) { 
+        rotate: -3deg;
+        animation-delay: 1s;
+      }
+    }
   }
 
+  h1:nth-of-type(2) { 
+    display: block;
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: white;
+    letter-spacing: -.35em;
+    margin: 0;
+    padding: 0 80px;
+    text-shadow: 0 0 2px #000; /* 1px outline */
+
+    & span {
+      display: inline-block;
+      animation: jump 1s infinite alternate;
+
+      &:first-of-type {
+        rotate: 7deg;
+        animation-delay: .1s;
+      }
+
+      &:nth-of-type(2) {
+        rotate: -4deg;
+        animation-delay: .2s;
+      }
+
+      &:nth-of-type(3) { 
+        rotate: 2deg;
+        animation-delay: .3s;
+      }
+
+      &:nth-of-type(4) { 
+        rotate: 6deg;
+        animation-delay: .4s;
+      }
+
+      &:nth-of-type(5) { 
+        rotate: -2deg;
+        animation-delay: .5s;
+      }
+
+      &:nth-of-type(6) { 
+        rotate: 2deg;
+        animation-delay: .6s;
+      }
+
+      &:nth-of-type(7) { 
+        rotate: -5deg;
+        animation-delay: .7s;
+      }
+
+      &:nth-of-type(8) { 
+        rotate: 9deg;
+        animation-delay: .8s;
+      }
+
+      &:nth-of-type(9) { 
+        rotate: 1deg;
+        animation-delay: .9s;
+      }
+
+      &:nth-of-type(10) { 
+        rotate: -3deg;
+        animation-delay: 1s;
+      }
+    }
+  }
+
+h2 {
+  font-size: 1rem;
+  font-weight: 400;
+  color: black;
+  margin-top: auto;
+  margin-bottom: 13vh;
+  position: relative; /* Ensure the h2 element is positioned */
+
+  span {
+    position: absolute;
+    padding: .5em;
+    border-radius: 50px;
+    animation: texting 1s ease-out;
+    border: var(--border);
+    box-shadow: var(--box-shadow) black;
+    z-index: 3;
+
+    &:first-of-type {
+      background-color: #dfdfdf;
+      top: 10px;
+      left: 80px;
+      border-bottom-left-radius: 0px;
+      animation-delay: 0s;
     }
 
-    h2 {
-      font-size: 1rem;
-      font-weight: 400;
-      color: black;
-      margin-top: auto;
-      margin-bottom: 13vh;
+    &:nth-of-type(2) {
+      background-color: rgb(105, 165, 211);
+      background-color: var(--color-lilac);
+      border-bottom-right-radius: 0px;
+      animation-delay: 1s;
+      animation-fill-mode: forwards;
+      opacity: 0;
+      top: calc(100% + 50px);
+      right: 80px;
     }
+  }
+}
+}
+
+@keyframes texting {
+  0% {
+    transform: translateY(100px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+
+
+@keyframes jump {
+  0% {
+    transform: translateY(0px);
+    color: var(--color-white);
+  }
+
+  50% {
+    color: var(--color-orange);
+  }
+
+  100% {
+    transform: translateY(10px);
+    color: var(--color-purple);
   }
 }
 
@@ -1148,7 +1286,7 @@ body > div:nth-of-type(6) {
     border: var(--border);
     box-shadow: var(--box-shadow) black;
     margin: 2vh 0;
-    padding: 1vh 3vw;
+    padding: 1vh 5vw 2vw 1vh;
 
     p {
       visibility: hidden;
@@ -1170,6 +1308,7 @@ body > div:nth-of-type(6) {
 
     &:nth-of-type(1) {
       max-width: 10vw;
+      min-width: 97px;
 
       div {
         height: 35px;
@@ -1196,6 +1335,7 @@ body > div:nth-of-type(6) {
 
     &:nth-of-type(2) {
       max-width: 13vw;
+      min-width: 97px;
 
       div {
         margin-top: 10px;
@@ -1236,6 +1376,7 @@ body > div:nth-of-type(6) {
 
     &:nth-of-type(3) {
       max-width: 9vw;
+      min-width: 97px;
 
       div {
         background: var(--color-white);
@@ -1264,7 +1405,6 @@ body > div:nth-of-type(6) {
 
 body > div:nth-of-type(6) > label:has(input[type=radio]:checked) {
   background-color: var(--color-orange);
-  max-width: max-content;
 
   div {
     display: none;
@@ -1282,10 +1422,16 @@ body > div:nth-of-type(6) > label:has(input[type=radio]:checked) {
 
 @media (max-width: 900px) {
 
-  body > section > h1 {
+  body > section {
+    > h1 {
     min-width: 100vw;
     margin: 0;
     padding: 0 0 0 0;
+    }
+
+    > h2 {
+      display: none;
+    }
   }
 
   body > div:nth-of-type(6) {
@@ -1415,6 +1561,7 @@ body > div:nth-of-type(6) > label:has(input[type=radio]:checked) {
     body:has(div:nth-of-type(6) > label:nth-of-type(2) input:checked) > div:first-of-type {
       > div:nth-of-type(4) {
         max-width: 80cqw;
+        min-width: 80cqw;
         position: absolute;
         top: 30px;
 
@@ -1428,6 +1575,7 @@ body > div:nth-of-type(6) > label:has(input[type=radio]:checked) {
           visibility: visible;
           position: absolute;
           max-width: 75cqw;
+          min-width: 75cqw;
 
           > * {
             visibility: visible;
