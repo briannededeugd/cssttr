@@ -1,5 +1,4 @@
 const ranges = document.querySelectorAll('[type="range"]');
-// const clouds = document.querySelectorAll("body > div:nth-of-type(4) > div");
 
 const updateRange = (range) => {
 	// the name of the custom property is the name of the input
@@ -7,9 +6,7 @@ const updateRange = (range) => {
 	// the value of the custom property is the value of the input
 	const rangeValue = range.value;
 	// a custom property is set on the HTML element
-	// clouds.forEach((cloud) => {
 	document.documentElement.style.setProperty("--" + rangeName, rangeValue);
-	// });
 };
 
 ranges.forEach((range) => {
