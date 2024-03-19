@@ -83,7 +83,6 @@ place-items: end center; */
 /* BASICS AND SITE TITLE */
 /* --------------------- */
 body {
-  /* font-family: Arial, Helvetica, sans-serif; */
   font-family: "AzeretMono", monospace;
   background: var(--color-regsky);
   background-repeat: no-repeat;
@@ -102,140 +101,144 @@ body > section {
   text-align: center;
   z-index: 9999;
 
-  h1:first-of-type { 
-    display: block;
-     position: absolute;
-    top: -2px;
-    left: -2px;
-    font-size: 3.5rem;
-    font-weight: 800;
-    color: black;
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    letter-spacing: -.35em;
-    margin: 0;
-    padding: 0 80px;
-    text-shadow: -2px -1px 1px #000; /* 1px outline */
+  h1 {
+    white-space: no-wrap;
+    
+    &:first-of-type { 
+      display: block;
+      position: absolute;
+      top: -2px;
+      left: -2px;
+      font-size: 3.5rem;
+      font-weight: 800;
+      color: black;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      letter-spacing: -.35em;
+      margin: 0;
+      padding: 0 80px;
+      text-shadow: -2px -1px 1px #000; /* 1px outline */
 
-    & span {
-      display: inline-block;
-      animation: jump 1s infinite alternate;
+      & span {
+        display: inline-block;
+        animation: jump 1s infinite alternate;
 
-      &:first-of-type {
-        rotate: 7deg;
-        animation-delay: .1s;
-      }
+        &:first-of-type {
+          rotate: 7deg;
+          animation-delay: .1s;
+        }
 
-      &:nth-of-type(2) {
-        rotate: -4deg;
-        animation-delay: .2s;
-      }
+        &:nth-of-type(2) {
+          rotate: -4deg;
+          animation-delay: .2s;
+        }
 
-      &:nth-of-type(3) { 
-        rotate: 2deg;
-        animation-delay: .3s;
-      }
+        &:nth-of-type(3) { 
+          rotate: 2deg;
+          animation-delay: .3s;
+        }
 
-      &:nth-of-type(4) { 
-        rotate: 6deg;
-        animation-delay: .4s;
-      }
+        &:nth-of-type(4) { 
+          rotate: 6deg;
+          animation-delay: .4s;
+        }
 
-      &:nth-of-type(5) { 
-        rotate: -2deg;
-        animation-delay: .5s;
-      }
+        &:nth-of-type(5) { 
+          rotate: -2deg;
+          animation-delay: .5s;
+        }
 
-      &:nth-of-type(6) { 
-        rotate: 2deg;
-        animation-delay: .6s;
-      }
+        &:nth-of-type(6) { 
+          rotate: 2deg;
+          animation-delay: .6s;
+        }
 
-      &:nth-of-type(7) { 
-        rotate: -5deg;
-        animation-delay: .7s;
-      }
+        &:nth-of-type(7) { 
+          rotate: -5deg;
+          animation-delay: .7s;
+        }
 
-      &:nth-of-type(8) { 
-        rotate: 9deg;
-        animation-delay: .8s;
-      }
+        &:nth-of-type(8) { 
+          rotate: 9deg;
+          animation-delay: .8s;
+        }
 
-      &:nth-of-type(9) { 
-        rotate: 1deg;
-        animation-delay: .9s;
-      }
+        &:nth-of-type(9) { 
+          rotate: 1deg;
+          animation-delay: .9s;
+        }
 
-      &:nth-of-type(10) { 
-        rotate: -3deg;
-        animation-delay: 1s;
+        &:nth-of-type(10) { 
+          rotate: -3deg;
+          animation-delay: 1s;
+        }
       }
     }
-  }
 
-  h1:nth-of-type(2) { 
-    display: block;
-    font-size: 3.5rem;
-    font-weight: 800;
-    color: white;
-    letter-spacing: -.35em;
-    margin: 0;
-    padding: 0 80px;
-    text-shadow: 0 0 2px #000; /* 1px outline */
+    &:nth-of-type(2) {
+      display: block;
+      font-size: 3.5rem;
+      font-weight: 800;
+      color: white;
+      letter-spacing: -.35em;
+      margin: 0;
+      padding: 0 80px;
+      text-shadow: 0 0 2px #000; /* 1px outline */
 
-    & span {
-      display: inline-block;
-      animation: jump 1s infinite alternate;
+      & span {
+        display: inline-block;
+        animation: jump 1s infinite alternate;
 
-      &:first-of-type {
-        rotate: 7deg;
-        animation-delay: .1s;
-      }
+        &:first-of-type {
+          rotate: 7deg;
+          animation-delay: .1s;
+        }
 
-      &:nth-of-type(2) {
-        rotate: -4deg;
-        animation-delay: .2s;
-      }
+        &:nth-of-type(2) {
+          rotate: -4deg;
+          animation-delay: .2s;
+        }
 
-      &:nth-of-type(3) { 
-        rotate: 2deg;
-        animation-delay: .3s;
-      }
+        &:nth-of-type(3) { 
+          rotate: 2deg;
+          animation-delay: .3s;
+        }
 
-      &:nth-of-type(4) { 
-        rotate: 6deg;
-        animation-delay: .4s;
-      }
+        &:nth-of-type(4) { 
+          rotate: 6deg;
+          animation-delay: .4s;
+        }
 
-      &:nth-of-type(5) { 
-        rotate: -2deg;
-        animation-delay: .5s;
-      }
+        &:nth-of-type(5) { 
+          rotate: -2deg;
+          animation-delay: .5s;
+        }
 
-      &:nth-of-type(6) { 
-        rotate: 2deg;
-        animation-delay: .6s;
-      }
+        &:nth-of-type(6) { 
+          rotate: 2deg;
+          animation-delay: .6s;
+        }
 
-      &:nth-of-type(7) { 
-        rotate: -5deg;
-        animation-delay: .7s;
-      }
+        &:nth-of-type(7) { 
+          rotate: -5deg;
+          animation-delay: .7s;
+        }
 
-      &:nth-of-type(8) { 
-        rotate: 9deg;
-        animation-delay: .8s;
-      }
+        &:nth-of-type(8) { 
+          rotate: 9deg;
+          animation-delay: .8s;
+        }
 
-      &:nth-of-type(9) { 
-        rotate: 1deg;
-        animation-delay: .9s;
-      }
+        &:nth-of-type(9) { 
+          rotate: 1deg;
+          animation-delay: .9s;
+        }
 
-      &:nth-of-type(10) { 
-        rotate: -3deg;
-        animation-delay: 1s;
+        &:nth-of-type(10) { 
+          rotate: -3deg;
+          animation-delay: 1s;
+        }
       }
     }
   }
@@ -439,7 +442,7 @@ body > div:first-of-type {
         justify-content: center;
 
         z-index: 10;
-        color: white;
+        color: black;
         font-size: 1.5em;
         line-height: 25px;
         position: absolute;
@@ -694,10 +697,10 @@ body > div:nth-of-type(3) {
   margin: 0;
   overflow: hidden;
   position: fixed;
-  top: 0;
+  top: -100px;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: 120%;
   pointer-events: none;
   z-index: 400;
 
@@ -1303,28 +1306,26 @@ body > div:last-of-type {
   label {
     display: flex;
     position: relative;
-    left: -10px;
+    left: 10px;
     align-items: center;
+    justify-content: center;
     text-align: right;
     font-size: .85rem;
-    min-width: 80px;
-    max-width: 12vw;
-    max-height: 10vw;
-    min-height: 40px;
+    min-width: fit-content;
+    aspect-ratio: 1/1;
     background-color: var(--color-white);
     border: var(--border);
+    border-radius: 50%;
     box-shadow: var(--box-shadow) black;
     margin: 2vh 0;
-    padding: 1vh 5vw 2vw 1vh;
+    padding: 1rem 1rem;
 
     div {
       order: 2;
       width: 10vw;
       aspect-ratio: 1/1;
       border: var(--border);
-      position: absolute;
-      margin: 0;
-      margin-left: 10px;
+      align-self: center;
 
       display: block;
       background-color: white;
@@ -1333,24 +1334,19 @@ body > div:last-of-type {
 
     &:nth-of-type(1) {
       div {
-        height: 35px;
-        width: 10px;
-        rotate: -10deg;
-        border-radius: 10px;
-        margin-left: 20px;
-
-        &::after {
-          content: "";
-          display: inline-block;
-          position: absolute;
-          left: 0;
-          bottom: 0;
-
-          width: 9px;
-          height: 25px;
-          border-radius: 5px;
-          border: var(--border);
-        }
+        width: 8px;
+        height: 8px;
+        border: solid 1px #000;
+        border-radius: 50%;
+        box-shadow: 8px 0 0 -4px #000, 
+                    -8px 0 0 -4px #000, 
+                    0 8px 0 -4px #000,
+                    0 -8px 0 -4px #000, 
+                    6px -6px 0 -4px #000, 
+                    -6px -6px 0 -4px #000, 
+                    -6px 6px 0 -4px #000, 
+                    6px 6px 0 -4px #000;
+        transform: scale(2);
       }
     }
 
@@ -1364,13 +1360,14 @@ body > div:last-of-type {
         box-shadow: -3px -1px;
         border: 1px solid black;
         border-radius: 1000px;
+        position: relative;
 
         &::before {
           content: "";
           display: inline-block;
           position: absolute;
-          bottom: 10px;
-          left: 5px;
+          bottom: 42%;
+          left: 20%;
           width: 15px;
           height: 15px;
           background-color: rgba(255, 255, 255);
@@ -1382,10 +1379,10 @@ body > div:last-of-type {
           content: "";
           display: inline-block;
           position: absolute;
-          bottom: 10px;
-          left: 17px;
-          width: 22px;
-          height: 22px;
+          bottom: 40%;
+          left: 45%;
+          width: 18px;
+          height: 18px;
           background-color: rgba(255, 255, 255);
           border-radius: 50%;
           box-shadow: -3px -1px;
@@ -1459,8 +1456,9 @@ body > div:last-of-type > label:has(input[type=radio]:checked) {
     width: 100dvw;
 
     & > div:nth-of-type(1) {
-      transform: scale(.95) translateX(-50%);
-      left: 50%;
+      scale: .90;
+      left: 44%;
+      margin-bottom: -1vh;
     }
 
     /* ------------------- */
@@ -1543,7 +1541,7 @@ body > div:last-of-type > label:has(input[type=radio]:checked) {
       }
 
        /* IF precipitation is checked, show precipitation control */
-    body:has(> div:nth-of-type(5) > label:nth-of-type(2) input:checked) > div:first-of-type {
+    body:has(> div:nth-of-type(5) > label:nth-of-type(3) input:checked) > div:first-of-type {
       /* Hide temp controls */
       > div:first-of-type {
         visibility: hidden;
@@ -1554,7 +1552,7 @@ body > div:last-of-type > label:has(input[type=radio]:checked) {
         display: none;
       }
 
-      /* Show cloud controls */
+      /* Show precipitation controls */
       > div:nth-of-type(3) {
         display: flex;
         flex-direction: column;
@@ -1568,20 +1566,20 @@ body > div:last-of-type > label:has(input[type=radio]:checked) {
           }
 
           &:nth-of-type(2) {
-            visibility: hidden;
-            display: none;
+            visibility: visible;
+            display: flex;
+            width: 80%;
           }
+
         }
 
         > h3 {
-          &:nth-of-type(1) {
-            visibility: hidden;
-            display: none;
-          }
+          visibility: hidden;
+          display: none;
 
           &:nth-of-type(2) {
-            visibility: hidden;
-            display: none;
+            visibility: visible;
+            display: block;
           }
         }
         }

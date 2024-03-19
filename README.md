@@ -54,20 +54,4 @@ To make most, if not all of the controls work, I was very dependent on the struc
 
 <img src="readme-img/htmlfix-todolist.jpg" width="400px">
 
-As you can see on the right page, this was also the point where I was thinking of what else I had left to do and what methods to use, including extra ideas like the snow turning to rain when the weather is hot. However, there was still one important step to take, and that was to fix the responsiveness - or rather, implement it.
-
-<img src="readme-img/responsiveness.jpg" width="100px">
-
-I decided to use buttons to toggle the different types of controls on a smaller screen, as they of course didn't fit in the viewport together if I showed them all simultaneously. At first, I wanted to make icons for the buttons with single div's, and have the word show up when a control was selected. This looked like this:
-
-<img src="readme-img/phonebuttons.png" width="200px">
-
-However, I later realized that this wasn't actually necessary, because the names of the controls are already shown by the controls themselves. So I kept the single icons instead and added aria-labels to clarify their functions.
-
-<img src="readme-img/newphonebuttons.png" width="100px">
-
-### New methods
-
-## Reflection
-
-## Sources
+As you can see on the right page, this was also the point where I was thinking of what else I had left to do and
