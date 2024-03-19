@@ -100,6 +100,7 @@ body > section {
   left: 50%;
   transform: translateX(-50%);
   text-align: center;
+  z-index: 9999;
 
   h1:first-of-type { 
     display: block;
@@ -245,7 +246,7 @@ h2 {
   color: black;
   margin-top: auto;
   margin-bottom: 13vh;
-  position: relative; /* Ensure the h2 element is positioned */
+  position: relative;
 
   span {
     position: absolute;
@@ -354,14 +355,13 @@ input[type=range]::-moz-range-track {
 
 body > div:first-of-type {
   width: 975px;
-  height: 35vh;
   background-color: white;
 
   border-radius: 20px 20px 0 0;
   border: var(--border);
   box-shadow: -3px -3px;
 
-  position: absolute;
+  position: fixed;
   bottom: 0;
   left: 50%;
   transform: translateX(-50%) perspective(500px) rotateX(10deg);
@@ -450,47 +450,45 @@ body > div:first-of-type {
         margin-right: auto;
         transition: all 1s ease-out;
       }
-    }
 
-    /* PIN INDICATOR */
-    & > div:nth-of-type(3) {
-      position: absolute;
-      z-index: 10;
+      /* PIN INDICATOR */
+      & > div:last-of-type {
+        z-index: 9999;
+        position: fixed;
+        margin-left: 50%;
+        bottom: 10px;
 
-      bottom: 35vh;
-      left: 50%;
-      transform: translateX(-50%);
-      transform-origin: bottom center;
-      transform: rotate(0deg);
-      transition: all .3s ease-in-out;
+        transform-origin: bottom center;
+        transform: rotate(0deg);
+        transition: all .3s ease-in-out;
 
-      box-shadow: -2px -2px black;
-      border: var(--border);
-      height: 150px;
-      width: 5px;
-      border-radius: 35%;
-      background-color: var(--color-orange);
-
-      &::after {
-        display: inline-block;
-        content: "";
-        background-color: white;
-        height: 15px;
-        width: 15px;
-        border-radius: 50%;
-        box-shadow: var(--box-shadow);
+        box-shadow: -2px -2px black;
         border: var(--border);
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-        bottom: -10px;
+        height: 150px;
+        width: 5px;
+        border-radius: 35%;
+        background-color: var(--color-orange);
+
+        &::after {
+          display: inline-block;
+          content: "";
+          background-color: white;
+          height: 15px;
+          width: 15px;
+          border-radius: 50%;
+          box-shadow: var(--box-shadow);
+          border: var(--border);
+          position: absolute;
+          left: 50%;
+          transform: translateX(-50%);
+          bottom: -10px;
+        }
       }
     }
 
     /* ------------------ */
     /* BUTTONS / CONTROLS */
     /* ------------------ */
-
     & > div:nth-of-type(2) {
       display: flex;
       justify-content: center;
@@ -543,21 +541,18 @@ body > div:first-of-type {
     /* FLAT PART OF THE CONTROL PANEL */
     /* ------------------------------ */
 
-    & > div:nth-of-type(4) {
-      height: 160px;
+    & > div:nth-of-type(3) {
       padding: 0 2rem;
       overflow: hidden;
-      position: absolute;
-      left: 50%;
-      transform: translateX(-50%) perspective(0px) rotateX(0deg);
+      transform: translateX(0%) perspective(0px) rotateX(0deg);
 
       display: grid;
-      grid-template-columns: 1fr 2fr;
-      grid-template-rows: repeat(4, 1fr);
+      grid-template-columns: 1fr 3fr;
+      grid-template-rows: repeat(2, max-content);
       margin-top: .5rem;
 
       & h3 {
-        grid-area: 1 / 3 / 3 / 4;
+        grid-area: 1 / 2 / 3 / 3;
         padding: 0 2.5vw;
         margin-bottom: 0;
 
@@ -565,12 +560,16 @@ body > div:first-of-type {
           grid-area: 1 / 1 / 2 / 2;
         }
       }
-      /* -------- */
+      /* ---------------- */
       /* GENERAL CONTROLS */
-      /* -------- */
+      /* ---------------- */
+
+      /* ------ */
+      /* CLOUDS */
+      /* ------ */
 
       & > div {
-        padding: 1rem 2.5rem 6rem;
+        padding: 1rem 2.5rem;
 
         &:first-of-type {
           grid-area: 2 / 1 / 3 / 2;
@@ -599,10 +598,10 @@ body > div:first-of-type {
       /* ------------- */
 
       & > div:nth-of-type(2) {
-        grid-area: 2 / 3 / 3 / 4;
+        grid-area: 2 / 2 / 3 / 3;
         display: flex;
-        gap: 5vw;
         text-align: center;
+        justify-content: space-between;
 
         & > div {
           & input[type=radio] {
@@ -718,9 +717,9 @@ body > div:nth-of-type(4) {
   & div {
     position: absolute;
     left: 0;
-    background: white;
+    background-color: rgba(255, 255, 255, var(--heaviness, 1));
     border-radius: 1000px;
-    animation: zoomies 10s infinite linear;
+    animation: zoomies 1s  calc( ( max( var(--index) - var(--wolken), 0)  ) * 10000000000s )  infinite linear backwards;
     z-index: 500;
 
     &::before {
@@ -730,7 +729,7 @@ body > div:nth-of-type(4) {
       left: 10%;
       width: 50%;
       height: 150%;
-      background-color: rgba(255, 255, 255, var(--before-opacity, 1));
+      background-color: rgba(255, 255, 255, var(--heaviness, 1));
       z-index: -1;
       border-radius: 50%;
     }
@@ -742,7 +741,7 @@ body > div:nth-of-type(4) {
       right: 20%;
       width: 30%;
       height: 100%;
-      background-color: rgba(255, 255, 255, var(--after-opacity, 1));
+      background-color: rgba(255, 255, 255, var(--heaviness, 1));
       z-index: -2;
       border-radius: 50%;
     }
@@ -784,6 +783,23 @@ body > div:nth-of-type(4) {
     /* ------------------ */
     /* ANIMATION DURATION */
     /* ------------------ */
+
+    &:nth-of-type(1) { --index:1; }
+    &:nth-of-type(2) { --index:2; }
+    &:nth-of-type(3) { --index:3; }
+    &:nth-of-type(4) { --index:4; }
+
+    &:nth-of-type(5) { --index:5; }
+    &:nth-of-type(6) { --index:6; }
+    &:nth-of-type(7) { --index:7; }
+    &:nth-of-type(8) { --index:8; }
+
+    &:nth-of-type(9) { --index:9; }
+    &:nth-of-type(10) { --index:10; }
+    &:nth-of-type(11) { --index:11; }
+    &:nth-of-type(12) { --index:12; }
+
+    
 
     &:nth-of-type(4n+1) {
       animation-duration: 14s;
@@ -855,15 +871,37 @@ body > div:nth-of-type(4) {
   }
 }
 
+/* @container style(--wolken:1) {
+  body > div:nth-of-type(4) {
+    & div:nth-of-type(-n + 1) {
+      display:block;
+    }
+  }
+}
+
+@container style(--wolken:2) {
+  body > div:nth-of-type(4) {
+    & div:nth-of-type(-n + 2) {
+      display:block;
+    }
+  }
+}
+
+@container style(--wolken:3) {
+  body > div:nth-of-type(4) {
+    & div:nth-of-type(-n + 3) {
+      display:block;
+    }
+  }
+} */
+
 @keyframes zoomies {
   from {
-    left: 0;
-    transform: translateX(-100%);
+    translate: -100%;
   }
 
   to {
-    left: 100%;
-    transform: translateX(0%);
+     translate:calc(100vw + 100%);
   }
 }
 
@@ -878,16 +916,26 @@ body > div:nth-of-type(4) {
 
 /* THE PIN NEEDLE */
 body > div:first-of-type {
-  & > div:nth-of-type(2):has(>input[type=radio]:first-of-type:checked) + div {
-    transform: rotate(-85deg);
-  }
 
-  & > div:nth-of-type(2):has(>input[type=radio]:nth-of-type(2):checked) + div {
+  /* COLD WEATHER */
+  & > div:first-of-type:has(+ div > input[type=radio]:first-of-type:checked) {
+    div:last-of-type {
+      transform: rotate(-85deg);
+    }
+  }
+  
+  /* JUST RIGHT WEATHER */
+  & > div:first-of-type:has(+ div > input[type=radio]:nth-of-type(2):checked) {
+    div:last-of-type {
       transform: rotate(0deg);
     }
+  }
 
-  & > div:nth-of-type(2):has(>input[type=radio]:nth-of-type(3):checked) + div {
+  /* HOT WEATHER */
+  & > div:first-of-type:has(+ div > input[type=radio]:nth-of-type(3):checked) {
+    div:last-of-type {
       transform: rotate(85deg);
+    }
   }
 }
 
@@ -933,7 +981,7 @@ body:has(> div:first-of-type > div:nth-of-type(2) > input[type=radio]:nth-of-typ
 /* ---- */
 /* RAIN */
 /* ---- */
-body:has(> div:first-of-type > div:nth-of-type(4) > div:nth-of-type(2) > div:nth-of-type(2) input[type=radio]:checked) {
+body:has(> div:first-of-type > div:nth-of-type(3) > div:nth-of-type(2) > div:nth-of-type(2) input[type=radio]:checked) {
   > div:nth-of-type(3) {
     > div:first-of-type > div {
       animation: fall linear infinite;
@@ -967,7 +1015,7 @@ body:has(> div:first-of-type > div:nth-of-type(4) > div:nth-of-type(2) > div:nth
 /* SNOWFLAKES */
 /* ---------- */
 
-body:has(> div:first-of-type > div:nth-of-type(4) > div:nth-of-type(2) > div:nth-of-type(3) input[type=radio]:checked) {
+body:has(> div:first-of-type > div:nth-of-type(3) > div:nth-of-type(2) > div:nth-of-type(3) input[type=radio]:checked) {
   > div:nth-of-type(3) {
     > div:nth-of-type(2) {
       > div {
@@ -975,9 +1023,10 @@ body:has(> div:first-of-type > div:nth-of-type(4) > div:nth-of-type(2) > div:nth
         position: relative;
         width: 5px;
         height: 25px;
-        animation: snowflakes 3s linear 2s 20;
+        animation: snowflakes 3s linear 2s 20 backwards;
         top: -100px;
         background: white;
+        opacity:0;
 
         &::after, &::before {
           background: white;
@@ -1013,7 +1062,7 @@ body:has(> div:first-of-type > div:nth-of-type(4) > div:nth-of-type(2) > div:nth
 /* -------------------------------------------------------------- */
 /* VARIATION IN SNOWFLAKES SIZE AND ANIMATION DURATION AND ORIGIN */
 /* -------------------------------------------------------------- */
-body:has(> div:first-of-type > div:nth-of-type(4) > div:nth-of-type(2) > div:nth-of-type(3) input[type=radio]:checked) {
+body:has(> div:first-of-type > div:nth-of-type(3) > div:nth-of-type(2) > div:nth-of-type(3) input[type=radio]:checked) {
   > div:nth-of-type(3) {
     > div:nth-of-type(2) {
       > div:nth-child(3n+1) {
@@ -1044,7 +1093,7 @@ body:has(> div:first-of-type > div:nth-of-type(4) > div:nth-of-type(2) > div:nth
 /* VARIATION IN DELAYS: SNOWFLAKES */
 /* ------------------------------- */
 
-body:has(> div:first-of-type > div:nth-of-type(4) > div:nth-of-type(2) > div:nth-of-type(3) input[type=radio]:checked) {
+body:has(> div:first-of-type > div:nth-of-type(3) > div:nth-of-type(2) > div:nth-of-type(3) input[type=radio]:checked) {
   div:nth-of-type(3) {
     div:nth-of-type(2) {
       div:nth-child(7n) {
@@ -1096,9 +1145,14 @@ body:has(> div:first-of-type > div:nth-of-type(4) > div:nth-of-type(2) > div:nth
 /* CATS AND DOGS */
 /* ------------- */
 
-body:has(> div:first-of-type > div:nth-of-type(4) > div:nth-of-type(2) > div:nth-of-type(4) input[type=radio]:checked) {
+/* body -> control panel ----> flat control panel -> precipitation --->  cats and dogs -----> checked radio button */
+body:has(> div:first-of-type > div:nth-of-type(3) > div:nth-of-type(2) > div:nth-of-type(4) input[type=radio]:checked) {
+
+  /* body > precipitation */
   div:nth-of-type(3) {
-    div:nth-of-type(2) {
+
+    /* cats and dogs */
+    div:nth-of-type(3) {
       div {
         display: inline-block;
         position: relative;
@@ -1137,9 +1191,9 @@ body:has(> div:first-of-type > div:nth-of-type(4) > div:nth-of-type(2) > div:nth
 /* ----------------------------------------------------------------- */
 /* VARIATION IN CATS AND DOGS SIZE AND ANIMATION DURATION AND ORIGIN */
 /* ----------------------------------------------------------------- */
-body:has(> div:first-of-type > div:nth-of-type(4) > div:nth-of-type(2) > div:nth-of-type(4) input[type=radio]:checked) {
+body:has(> div:first-of-type > div:nth-of-type(3) > div:nth-of-type(2) > div:nth-of-type(4) input[type=radio]:checked) {
   > div:nth-of-type(3) {
-    > div:nth-of-type(2) {
+    > div:nth-of-type(3) {
       > div:nth-child(3n+1) {
         width: 24px; height: 6px;
         animation-duration: 6s;
@@ -1167,9 +1221,9 @@ body:has(> div:first-of-type > div:nth-of-type(4) > div:nth-of-type(2) > div:nth
 /* ----------------------------------------------- */
 /* VARIATION IN DELAYS: CATS AND DOGS */
 /* ----------------------------------------------- */
-body:has(> div:first-of-type > div:nth-of-type(4) > div:nth-of-type(2) > div:nth-of-type(4) input[type=radio]:checked) {
+body:has(> div:first-of-type > div:nth-of-type(3) > div:nth-of-type(2) > div:nth-of-type(4) input[type=radio]:checked) {
   div:nth-of-type(3) {
-    div:nth-of-type(2) {
+    div:nth-of-type(3) {
       div:nth-child(7n) {
         opacity:.3;
         animation-delay: 0s;
@@ -1237,39 +1291,11 @@ body:has(> div:first-of-type > div:nth-of-type(4) > div:nth-of-type(2) > div:nth
 	};
 }
 
-
-/* -------------------------------- */
-/* THE SNOW HAS MELTED (IF TOO HOT) */
-/* -------------------------------- */
-
-body > div:nth-of-type(5) {
-  visibility: hidden;
-  position: absolute;
-  top: 5vh;
-  right: 5vw;
-  z-index: 9999;
-
-  width: 20vh;
-  padding: 2rem;
-
-  background-color: white;
-  box-shadow: var(--box-shadow);
-  border: var(--border);
-}
-
-/* body:has(> div:first-of-type > div:nth-of-type(4) > div:nth-of-type(2) > div:nth-of-type(3) input[type=radio]:checked) > div:last-of-type {
-  visibility: visible;
-}  */
-
-/* body > div:first-of-type:has(div:nth-of-type(4) > div:nth-of-type(2) > div:nth-of-type(3) > input[type=radio]:checked, div:nth-of-type(2):has(input[type=radio]:last-of-type:checked)) div:last-of-type {
-  visibility: visible;
-} */
-
 /* ------------------- */
 /* PHONE SIZE CONTROLS */
 /* ------------------- */
 
-body > div:nth-of-type(6) {
+body > div:last-of-type {
   display: none;
   position: absolute;
   z-index: 9999;
@@ -1281,16 +1307,15 @@ body > div:nth-of-type(6) {
     align-items: center;
     text-align: right;
     font-size: .85rem;
-    width: 40vw;
+    min-width: 80px;
+    max-width: 12vw;
+    max-height: 10vw;
+    min-height: 40px;
     background-color: var(--color-white);
     border: var(--border);
     box-shadow: var(--box-shadow) black;
     margin: 2vh 0;
     padding: 1vh 5vw 2vw 1vh;
-
-    p {
-      visibility: hidden;
-    }
 
     div {
       order: 2;
@@ -1307,9 +1332,6 @@ body > div:nth-of-type(6) {
     }
 
     &:nth-of-type(1) {
-      max-width: 10vw;
-      min-width: 97px;
-
       div {
         height: 35px;
         width: 10px;
@@ -1324,18 +1346,15 @@ body > div:nth-of-type(6) {
           left: 0;
           bottom: 0;
 
-          width: 10px;
+          width: 9px;
           height: 25px;
           border-radius: 5px;
-
-          background-color: var(--color-purple);
+          border: var(--border);
         }
       }
     }
 
     &:nth-of-type(2) {
-      max-width: 13vw;
-      min-width: 97px;
 
       div {
         margin-top: 10px;
@@ -1375,8 +1394,6 @@ body > div:nth-of-type(6) {
     }
 
     &:nth-of-type(3) {
-      max-width: 9vw;
-      min-width: 97px;
 
       div {
         background: var(--color-white);
@@ -1397,23 +1414,15 @@ body > div:nth-of-type(6) {
       position: absolute;
       width: 100%;
       height: 100%;
+      cursor: pointer;
     }
 
 
   }
 }
 
-body > div:nth-of-type(6) > label:has(input[type=radio]:checked) {
+body > div:last-of-type > label:has(input[type=radio]:checked) {
   background-color: var(--color-orange);
-
-  div {
-    display: none;
-  }
-
-  p {
-    visibility: visible;
-  }
-  
 }
 
 /* -------------- */
@@ -1422,165 +1431,161 @@ body > div:nth-of-type(6) > label:has(input[type=radio]:checked) {
 
 @media (max-width: 900px) {
 
+  /* ---------- */
+  /* Site title */
+  /* ---------- */
   body > section {
-    > h1 {
-    min-width: 100vw;
-    margin: 0;
-    padding: 0 0 0 0;
+    h1 {
+      min-width: 100vw;
+      margin: 0;
+      padding: 0 0 0 0;
     }
-
-    > h2 {
+    h2 {
       display: none;
     }
   }
 
-  body > div:nth-of-type(6) {
+  /* ------------------ */
+  /* Show phone buttons */
+  /* ------------------ */
+  body > div:last-of-type {
     display: block;
   }
 
-  /* WHOLE CONTROL PANEL */
+  /* -------------------- */
+  /* Control panel sizing */
+  /* -------------------- */
   body > div:first-of-type {
-    width: clamp(450px, 70%, 600px);
-    container: controlpanel / inline-size;
+    width: 100dvw;
 
-    div {
-      visibility: hidden;
+    & > div:nth-of-type(1) {
+      transform: scale(.95) translateX(-50%);
+      left: 50%;
     }
 
-    h3 {
-      visibility: hidden;
-    }
-  
-    div:nth-of-type(2) {
-      visibility: hidden;
-    }
-  }
-
-  /* IF TEMP IS CHECKED, SHOW CONTROLS */
-  body:has(div:nth-of-type(6) > label:first-of-type input:checked) > div:first-of-type {
-    max-height: max-content;
-    position: absolute;
-    bottom: -12vw;
-
-      > div:first-of-type {
-        visibility: visible;
-
-        > * {
-          visibility: visible;
-        }
-      }
-
-      > div:nth-of-type(2) {
-        visibility: visible;
-        flex-direction: column;
-        gap: 1vw;
-
-        > * {
-          visibility: visible;
-        }
-      }
-
-      > div:nth-of-type(3) {
-        visibility: visible;
-
-        > * {
-          visibility: visible;
-        }
-      }
-  }
-
-  /* IF CLOUDS IS CHECKED, SHOW CONTROLS */
-  body:has(div:nth-of-type(6) > label:nth-of-type(2) input:checked) > div:first-of-type {
-    max-height: 25vh;
-
-    div:nth-of-type(2) {
-      max-height: 0;
-    }
-
-    > div:nth-of-type(4) {
-      > h3:first-of-type {
-        visibility: visible;
-        text-align: center;
-        width: 100%;
-      }
-
-      > div:first-of-type {
-        visibility: visible;
-        position: absolute;
-        top: -15px;
-
-        > * {
-          visibility: visible;
-          align-items: center;
-          padding: 1vh 0px;
-        }
-      }
-    }
-  }
-
-  /* IF PRECIPITATION IS CHECKED, SHOW CONTROLS */
-  body:has(div:nth-of-type(6) > label:nth-of-type(3) input:checked) > div:first-of-type {
-    max-height: 30vh;
-
-    div:nth-of-type(2) {
-      max-height: 1px;
-      padding: 1px;
-    }
-
-    > div:nth-of-type(4) {
+    /* ------------------- */
+    /* Temperature buttons */
+    /* ------------------- */
+    & > div:nth-of-type(2) {
+      margin: 0;
       display: flex;
-      flex-direction: column;
-      padding-top: 4vh;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      flex-direction: row !important;
+      max-width: 100%;
+      visibility: hidden;
 
-      > h3:nth-of-type(2) {
+      input, label {
+        max-width: max-content;
+        padding: .5em 2em;
+      }
+    }
+      /* Flat control panel */
+      & > div:nth-of-type(3) {
+        visibility: hidden;
+        display: none;
+      }
+    } 
+
+    /* IF temperature is checked, show temp controls */
+    body:has(> div:last-of-type > label:first-of-type input:checked) > div:first-of-type {
+      > div:first-of-type {
         visibility: visible;
-        text-align: center;
-        position: absolute;
-        left: 0;
-        width: 100%;
       }
 
       > div:nth-of-type(2) {
         visibility: visible;
-        position: absolute;
-        padding-top: 4vh;
-        top: 60px;
-        left: 50%;
-        transform: translateX(-50%);
-
-        > * {
-          visibility: visible;
-          align-items: center;
-        }
       }
     }
-  }
-}
 
-@container controlpanel (max-width: 700px) {
-    body:has(div:nth-of-type(6) > label:nth-of-type(2) input:checked) > div:first-of-type {
-      > div:nth-of-type(4) {
-        max-width: 80cqw;
-        min-width: 80cqw;
-        position: absolute;
-        top: 30px;
+    /* IF clouds is checked, show cloud control */
+    body:has(> div:nth-of-type(5) > label:nth-of-type(2) input:checked) > div:first-of-type {
+      /* Hide temp controls */
+      > div:first-of-type {
+        visibility: hidden;
+      }
 
-        > h3:first-of-type {
-          visibility: visible;
-          text-align: center;
-          width: 70cqw;
-        }
+      > div:nth-of-type(2) {
+        visibility: hidden;
+        display: none;
+      }
 
-        > div:first-of-type {
-          visibility: visible;
-          position: absolute;
-          max-width: 75cqw;
-          min-width: 75cqw;
+      /* Show cloud controls */
+      > div:nth-of-type(3) {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        visibility: visible;
 
-          > * {
+        > div {
+          &:nth-of-type(1) {
             visibility: visible;
           }
+
+          &:nth-of-type(2) {
+            visibility: hidden;
+            display: none;
+          }
+        }
+
+        > h3 {
+          &:nth-of-type(1) {
+            visibility: visible;
+          }
+
+          &:nth-of-type(2) {
+            visibility: hidden;
+            display: none;
+          }
+        }
         }
       }
-    }
-}
+
+       /* IF precipitation is checked, show precipitation control */
+    body:has(> div:nth-of-type(5) > label:nth-of-type(2) input:checked) > div:first-of-type {
+      /* Hide temp controls */
+      > div:first-of-type {
+        visibility: hidden;
+      }
+
+      > div:nth-of-type(2) {
+        visibility: hidden;
+        display: none;
+      }
+
+      /* Show cloud controls */
+      > div:nth-of-type(3) {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        visibility: visible;
+
+        > div {
+          &:nth-of-type(1) {
+            visibility: hidden;
+            display: none;
+          }
+
+          &:nth-of-type(2) {
+            visibility: hidden;
+            display: none;
+          }
+        }
+
+        > h3 {
+          &:nth-of-type(1) {
+            visibility: hidden;
+            display: none;
+          }
+
+          &:nth-of-type(2) {
+            visibility: hidden;
+            display: none;
+          }
+        }
+        }
+      }
+  }
+
+  

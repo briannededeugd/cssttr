@@ -49,7 +49,11 @@
 				<div>
 					<h3>Temperature</h3>
 				</div>
+
+				<!-- Pin needle pointer -->
+				<div></div>
 			</div>
+
 			<!-- TEMPERATURE CONTROL BUTTONS -->
 			<div>
 				<input type="radio" name="temperature" id="cold" />
@@ -62,9 +66,6 @@
 				<label for="hot">Hot</label>
 			</div>
 
-			<div></div>
-			<!-- Pin needle pointer -->
-
 			<!-- MAIN CONTROL PANEL (FLAT) -->
 			<div>
 				<!-- AMOUNT OF CLOUDS -->
@@ -72,11 +73,23 @@
 				<div>
 					<div>
 						<h4>Amount</h4>
-						<input type="range" min="0" max="100" value="50" />
+						<input
+							type="range"
+							min="0"
+							max="12"
+							value="0"
+							step="1"
+							name="wolken" />
 					</div>
 					<div>
 						<h4>Heaviness</h4>
-						<input type="range" min="0" max="100" value="50" />
+						<input
+							type="range"
+							min="0"
+							max="1"
+							value=".5"
+							step="any"
+							name="heaviness" />
 					</div>
 				</div>
 
@@ -342,26 +355,17 @@
 			<div></div>
 		</div>
 
-		<div>
-			<h4>Whoops...</h4>
-
-			<p>It's way too hot— the snow has melted!</p>
-		</div>
-
 		<!-- FOR RESPONSIVENESS: TOGGLE BUTTONS (CHECKBOXES) -->
 		<div>
 			<label>
-				<p>Temperature</p>
 				<div></div>
 				<input type="radio" name="control" />
 			</label>
 			<label>
-				<p>Clouds</p>
 				<div></div>
 				<input type="radio" name="control" />
 			</label>
 			<label>
-				<p>Precipitation</p>
 				<div></div>
 				<input type="radio" name="control" />
 			</label>

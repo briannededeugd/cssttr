@@ -10,7 +10,7 @@ The course had a few prerequisites for the interaction I had to build:
 
 My first idea was to create a calculator controller. I still had to think about the affordance aspect, but since feedback and status are pretty intuitive for this control panel, it seemed like a logical first idea. Due to my initial misunderstanding of the assignment, I presumed that the project stylistically had to resemble a chosen image, which didn't give me much freedom when it came to style. I sketched out a rough idea according to a Flickr photo of an old-school calculator, and began to consider how I could stay true to its style.
 
-<img src="readme-img/calculatorsketch.jpg" width="300px"> <img src="readme-img/calculatoridea.png" width="300px">
+<img src="readme-img/initialidea.jpg" width="400px">
 
 When I thought about affordance, however, I wrote down for myself that I *must* control something, but I wondered what that would be. Should the calculator be calculating, or is clicking buttons and having an input returned elsewhere enough? More importantly, how would I manage to do either with CSS?
 
@@ -20,11 +20,9 @@ The 'answer', as noted in my journal, was: "Nevermind this, I'm going for idea 2
 
 Because, alternatively, I came up with a *retro lab style* control panel as a weather machine. The pages and sketches dedicated to that idea are as follows:
 
-<img src="readme-img/controlsketches.jpg" width="400px">
+<img src="readme-img/controlchanges-problem.jpg" width="400px">
 
-I doubted whether to use the dial-type indicator for temperature or for the different types of precipitation, but ended up choosing the first. I thought it'd make more sense to see a range of temperatures in a gauge-design than a list, since there's not particularly an order to what kinds of precipitations there are. This led me to the next page in my journal: _change in precipitation_.
-
-<img src="readme-img/precipitation.jpg" width="400px">
+I doubted whether to use the dial-type indicator for temperature or for the different types of precipitation, but ended up choosing the first. I thought it'd make more sense to see a range of temperatures in a gauge-design than a list, since there's not particularly an order to what kinds of precipitations there are. This led me to the next page in my journal: _change in precipitation_ (the left page of the previous image).
 
 There was one thing I struggled with for a bit: the interaction. This is, of course, terrible, as interaction is what it's (literally) all about. I couldn't wrap my head around the notion of selecting one element and somehow easily selecting another, based on that one element's status, to then manipulate it accordingly. My journal says the following:
 
@@ -54,7 +52,19 @@ body > div:first-of-type {
 
 To make most, if not all of the controls work, I was very dependent on the structure of my HTML, especially because I wasn't allowed to use classes and ID's. Since I wanted to use the '+' selector in CSS, it was important for whatever to come after the '+' to also come before whatever was before it in HTML. This meant that I had to move my HTML around a bit. I wrote out the logic in my journal so that I wouldn't take any unnecessary steps:
 
+<img src="readme-img/htmlfix-todolist.jpg" width="400px">
 
+As you can see on the right page, this was also the point where I was thinking of what else I had left to do and what methods to use, including extra ideas like the snow turning to rain when the weather is hot. However, there was still one important step to take, and that was to fix the responsiveness - or rather, implement it.
+
+<img src="readme-img/responsiveness.jpg" width="100px">
+
+I decided to use buttons to toggle the different types of controls on a smaller screen, as they of course didn't fit in the viewport together if I showed them all simultaneously. At first, I wanted to make icons for the buttons with single div's, and have the word show up when a control was selected. This looked like this:
+
+<img src="readme-img/phonebuttons.png" width="200px">
+
+However, I later realized that this wasn't actually necessary, because the names of the controls are already shown by the controls themselves. So I kept the single icons instead and added aria-labels to clarify their functions.
+
+<img src="readme-img/newphonebuttons.png" width="100px">
 
 ### New methods
 

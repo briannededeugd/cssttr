@@ -1,31 +1,23 @@
-const amountSlider = document.querySelector(
-	"body > div:first-of-type > div:nth-of-type(4) > div:first-of-type > div:first-of-type > input[type=range]"
-);
-const heavinessSlider = document.querySelector(
-	"body > div:first-of-type > div:nth-of-type(4) > div:first-of-type > div:nth-of-type(2) > input[type=range]"
-);
-const clouds = document.querySelectorAll("body > div:nth-of-type(4) > div");
+const ranges = document.querySelectorAll('[type="range"]');
+// const clouds = document.querySelectorAll("body > div:nth-of-type(4) > div");
 
-amountSlider.addEventListener("input", function () {
-	const value = parseInt(this.value);
-	const hideCount = Math.floor((clouds.length * value) / 100);
+const updateRange = (range) => {
+	// the name of the custom property is the name of the input
+	const rangeName = range.name;
+	// the value of the custom property is the value of the input
+	const rangeValue = range.value;
+	// a custom property is set on the HTML element
+	// clouds.forEach((cloud) => {
+	document.documentElement.style.setProperty("--" + rangeName, rangeValue);
+	// });
+};
 
-	clouds.forEach((item, index) => {
-		if (index < hideCount) {
-			item.style.visibility = "visible";
-		} else {
-			item.style.visibility = "hidden";
-		}
-	});
-});
+ranges.forEach((range) => {
+	// the custom property is set initially after loading the document
+	updateRange(range);
 
-heavinessSlider.addEventListener("input", function () {
-	const value = parseInt(this.value);
-	const opacity = value / 100; // Convert slider value to opacity (0 to 1)
-
-	clouds.forEach((item) => {
-		item.style.backgroundColor = `rgba(255, 255, 255, ${opacity})`; // Set background-color with opacity
-		item.style.setProperty("--before-opacity", opacity); // Set --before-opacity custom property
-		item.style.setProperty("--after-opacity", opacity); // Set --after-opacity custom property
-	});
+	// the custom property is updated when the input is changed
+	range.oninput = () => {
+		updateRange(range);
+	};
 });
