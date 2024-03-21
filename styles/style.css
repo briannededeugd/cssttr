@@ -122,7 +122,7 @@ body > section {
 
       & span {
         display: inline-block;
-        animation: jump 1s infinite alternate;
+        animation: jump 3s 2 alternate;
 
         &:first-of-type {
           rotate: 7deg;
@@ -188,7 +188,7 @@ body > section {
 
       & span {
         display: inline-block;
-        animation: jump 1s infinite alternate;
+        animation: jump 3s 2 alternate;
 
         &:first-of-type {
           rotate: 7deg;
@@ -297,17 +297,28 @@ h2 {
 
 @keyframes jump {
   0% {
-    transform: translateY(0px);
+    /* transform: translateY(0px); */
     color: var(--color-white);
+    font-family: 'Courier New', Courier, monospace;
+  }
+
+  25% {
+    font-family: 'AzeretMono', Arial, sans-serif;
   }
 
   50% {
     color: var(--color-orange);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+
+  75% {
+    font-family: 'AzeretMono', Arial, sans-serif;
   }
 
   100% {
-    transform: translateY(10px);
+    /* transform: translateY(10px); */
     color: var(--color-purple);
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   }
 }
 
